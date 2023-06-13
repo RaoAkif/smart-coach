@@ -1,5 +1,5 @@
-import Menubar from './Menubar';
-import Sidebar from './Sidebar';
+import Menubar from './DashHeader';
+import Sidebar from './DashSidebar';
 import { Outlet } from 'react-router-dom';
 
 const DashLayout = () => {

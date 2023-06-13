@@ -12,7 +12,7 @@ const RegisterForm = () => {
         Welcome coach! Please fill in your details.
       </p>
 
-      <form className="mt-8">
+      <form className="mt-8 w-64 lg:w-96">
         <div className="relative border border-solid border-gray-300 rounded-xl p-2">
           <div className="h-1/2 border-gray-300"></div>
           <input

@@ -1,7 +1,7 @@
-const player = () => {
+const Player = () => {
   return (
-    <div>player</div>
+    <div>Player</div>
   )
 }
 
-export default player
+export default Player

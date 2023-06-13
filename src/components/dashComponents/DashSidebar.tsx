@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import Logo from '../Logo';
 
-const Sidebar = () => {
+const DashSidebar = () => {
   const pathName = window.location.pathname;
   return (
     <nav className="h-screen flex flex-col">
@@ -9,10 +9,10 @@ const Sidebar = () => {
       {/* Menu Items Start */}
       <div className="flex flex-col h-screen pb-10">
         <ul className="mt-8">
-          <NavLink to="/">
+          <NavLink to="/dashboard">
             <li
               className={
-                pathName === '/'
+                pathName === '/dashboard'
                   ? 'active my-2 py-2 px-3'
                   : 'my-2 py-2 px-3'
               }
@@ -101,4 +101,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default DashSidebar;

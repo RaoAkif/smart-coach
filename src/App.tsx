@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
-import Public from './components/Public'
+import Public from './components/authComponents/Public'
 import Login from './features/auth/Login';
 import Register from './features/auth/Register';
 import DashLayout from './components/dashComponents/DashLayout'
