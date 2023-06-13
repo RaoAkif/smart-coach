@@ -1,6 +1,6 @@
 const Event = () => {
   return (
-    <div>Event</div>
+    <div>A List of Events</div>
   )
 }
 

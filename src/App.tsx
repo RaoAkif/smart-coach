@@ -5,8 +5,8 @@ import Login from './features/auth/Login';
 import Register from './features/auth/Register';
 import DashLayout from './components/dashComponents/DashLayout'
 import Home from './features/auth/Home'
-import Event from './features/event/Event'
-import Player from './features/player/Player'
+import Events from './features/events/Events'
+import Players from './features/players/Players'
 
 function App() {
   return (
@@ -20,12 +20,12 @@ function App() {
 
           <Route index element={<Home />} />
 
-          <Route path="event">
-            <Route index element={<Event />} />
+          <Route path="events">
+            <Route index element={<Events />} />
           </Route>
 
-          <Route path="player">
-            <Route index element={<Player />} />
+          <Route path="players">
+            <Route index element={<Players />} />
           </Route>
 
         </Route>{/* End Dash */}

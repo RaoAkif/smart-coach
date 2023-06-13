@@ -1,6 +1,6 @@
 const Player = () => {
   return (
-    <div>Player</div>
+    <div>A List of Players</div>
   )
 }
 

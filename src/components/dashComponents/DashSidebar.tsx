@@ -32,10 +32,10 @@ const DashSidebar = () => {
           </NavLink>
 
           {/* My Team menu item */}
-          <NavLink to="/players">
+          <NavLink to="/dashboard/players">
             <li
               className={
-                pathName === '/players'
+                pathName === '/dashboard/players'
                   ? 'active my-2 py-2 px-3'
                   : 'my-2 py-2 px-3'
               }
@@ -55,10 +55,10 @@ const DashSidebar = () => {
           </NavLink>
 
           {/* Events menu item */}
-          <NavLink to="/events">
+          <NavLink to="/dashboard/events">
             <li
               className={
-                pathName === '/events'
+                pathName === '/dashboard/events'
                   ? 'active my-2 py-2 px-3'
                   : 'my-2 py-2 px-3'
               }
