@@ -3,7 +3,7 @@ import Layout from './components/Layout'
 import Public from './components/Public'
 import Login from './features/auth/Login';
 import Register from './features/auth/Register';
-import DashLayout from './components/DashLayout'
+import DashLayout from './components/dashComponents/DashLayout'
 import Welcome from './features/auth/Welcome'
 import Event from './features/event/Event'
 import Player from './features/player/Player'

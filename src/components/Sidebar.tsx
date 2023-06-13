@@ -1,18 +1,11 @@
 import { NavLink } from 'react-router-dom';
+import Logo from './Logo';
 
 const Sidebar = () => {
   const pathName = window.location.pathname;
   return (
     <nav className="sidebar">
-      <div className="flex items-center ml-2">
-        <img
-          src="/assets/images/SmartCoachLogo.jpg"
-          alt="Smart Coach Logo"
-          width={28}
-          height={28}
-        />
-        <span className="pl-2 font-semibold text-xl">Smart Coach</span>
-      </div>
+      <Logo />
 
       {/* Menu Items Start */}
       <div className="flex flex-col justify-between min-h-screen">
