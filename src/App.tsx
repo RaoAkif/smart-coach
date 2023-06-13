@@ -4,7 +4,7 @@ import Public from './components/Public'
 import Login from './features/auth/Login';
 import Register from './features/auth/Register';
 import DashLayout from './components/dashComponents/DashLayout'
-import Welcome from './features/auth/Welcome'
+import Home from './features/auth/Home'
 import Event from './features/event/Event'
 import Player from './features/player/Player'
 
@@ -16,9 +16,9 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
 
-        <Route path="dash" element={<DashLayout />}>
+        <Route path="dashboard" element={<DashLayout />}>
 
-          <Route index element={<Welcome />} />
+          <Route index element={<Home />} />
 
           <Route path="event">
             <Route index element={<Event />} />

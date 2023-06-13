@@ -4,7 +4,7 @@ type CreateButtonProps = {
 
 const CreateButton = ({ text }: CreateButtonProps) => {
   return (
-    <div className="flex items-center py-2 px-4 border-2 border-purple-800 rounded-6">
+    <div className="flex items-center py-2 px-4 border-2 border-purple-800 rounded-md">
       <div className="">
         <img
           src="/assets/icons/AddIcon.png"
