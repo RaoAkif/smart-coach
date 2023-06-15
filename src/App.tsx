@@ -5,33 +5,41 @@ import Login from './features/auth/Login';
 import Register from './features/auth/Register';
 import DashLayout from './components/dashComponents/DashLayout'
 import Home from './features/auth/Home'
-import Events from './features/events/Events'
 import Players from './features/players/Players'
+import Teams from './features/teams/Teams'
+import Events from './features/events/Events'
+import { store } from './redux/store'
+import { Provider } from 'react-redux'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Public />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+    <Provider store={store}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Public />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
 
-        <Route path="dashboard" element={<DashLayout />}>
+          <Route path="dashboard" element={<DashLayout />}>
 
-          <Route index element={<Home />} />
+            <Route index element={<Home />} />
 
-          <Route path="events">
-            <Route index element={<Events />} />
-          </Route>
+            <Route path="events">
+              <Route index element={<Events />} />
+            </Route>
 
-          <Route path="players">
-            <Route index element={<Players />} />
-          </Route>
+            <Route path="players">
+              <Route index element={<Players />} />
+            </Route>
 
-        </Route>{/* End Dash */}
+            <Route path="teams">
+              <Route index element={<Teams />} />
+            </Route>
 
-      </Route>
-    </Routes>
+          </Route>{/* End Dash */}
+        </Route>
+      </Routes>
+    </Provider>
   );
 }
 
