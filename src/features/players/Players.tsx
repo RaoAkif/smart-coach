@@ -3,47 +3,50 @@ import { useGetPlayersQuery, useAddPlayerMutation, useEditPlayerMutation, useDel
 import Player from "./Player";
 
 interface PlayerProps {
-  player: {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    number: string;
-    position: "GOAL_KEEPER" | "FULL_BACK_RIGHT" | "FULL_BACK_LEFT" | "CENTRE_BACK" | "SWEEPER" | "DEFENSIVE_MIDFIELD_RIGHT" | "DEFENSIVE_MIDFIELD_LEFT" | "SECOND_STRIKER" | "CENTRE_FORWARD";
-  };
-  openModal: (playerId: number) => void;
-  isEditing: boolean;
-  deletePlayer: (id: number) => void; // Add the deletePlayer prop
-  isDeletingPlayer: boolean; // Add the isDeletingPlayer prop
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  number: string;
+  position: "GOAL_KEEPER" | "FULL_BACK_RIGHT" | "FULL_BACK_LEFT" | "CENTRE_BACK" | "SWEEPER" | "DEFENSIVE_MIDFIELD_RIGHT" | "DEFENSIVE_MIDFIELD_LEFT" | "SECOND_STRIKER" | "CENTRE_FORWARD";
 }
 
 const Players = () => {
   const { data: players, isLoading, error } = useGetPlayersQuery({});
-  const [addPlayer, { isLoading: isAddingPlayer, isError }] = useAddPlayerMutation();
-  const [editPlayer, { isLoading: isEditingPlayer }] = useEditPlayerMutation();
+  const [addPlayer] = useAddPlayerMutation();
+  const [editPlayer] = useEditPlayerMutation();
   const [deletePlayer, { isLoading: isDeletingPlayer }] = useDeletePlayerMutation();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddingPlayer, setIsAddingPlayer] = useState(false); // New state variable
   const [editingPlayerId, setEditingPlayerId] = useState<number | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [playerDetails, setPlayerDetails] = useState<PlayerProps>({
-    id: "",
+    id: 0,
     name: "",
     username: "",
     email: "",
     number: "",
-    position: "",
-    availability_status: "PENDING"
+    position: "GOAL_KEEPER"
   });
 
-  const openModal = (playerId: number) => {
+  const openModal = (playerId?: number) => {
     setIsModalOpen(true);
     setEditingPlayerId(playerId);
-    setIsEditing(true);
+    setIsEditing(Boolean(playerId));
     const player = players.find((player) => player.id === playerId);
     if (player) {
       setPlayerDetails(player);
+    } else {
+      setPlayerDetails({
+        id: 0,
+        name: "",
+        username: "",
+        email: "",
+        number: "",
+        position: "GOAL_KEEPER",
+      });
     }
-  };
+  };  
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -55,7 +58,7 @@ const Players = () => {
       username: "",
       email: "",
       number: "",
-      position: "",
+      position: "GOAL_KEEPER",
     });
   };
 
@@ -72,27 +75,23 @@ const Players = () => {
         .catch((error) => {
           console.error("Error updating player:", error);
         });
-    } else if (player.id) {
-      deletePlayer(player.id)
-        .unwrap()
-        .then((response) => {
-          console.log("Player deleted successfully:", response);
-        })
-        .catch((error) => {
-          console.error("Error deleting player:", error);
-        });    
-    } else {
-      addPlayer(playerDetails)
-        .unwrap()
-        .then((response) => {
-          console.log("Player added successfully:", response);
-          closeModal();
-        })
-        .catch((error) => {
-          console.error("Error adding player:", error);
-        });
-    }
-  };
+      } else {
+        setIsAddingPlayer(true); // Set isAddingPlayer to true when adding a player
+  
+        addPlayer(playerDetails)
+          .unwrap()
+          .then((response) => {
+            console.log("Player added successfully:", response);
+            closeModal();
+          })
+          .catch((error) => {
+            console.error("Error adding player:", error);
+          })
+          .finally(() => {
+            setIsAddingPlayer(false); // Set isAddingPlayer back to false after the request is completed
+          });
+      }
+    };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -126,7 +125,7 @@ const Players = () => {
             </div>
           </div>
           <div className="flex items-center gap-2 ml-auto">
-            <button className="flex items-center justify-center bg-blue-700 text-white px-2 py-1 rounded-md" style={{ width: '133px', height: '40px' }} onClick={openModal}>
+            <button className="flex items-center justify-center bg-blue-700 text-white px-2 py-1 rounded-md" style={{ width: '133px', height: '40px' }} onClick={() => openModal()}>
               <img src="/assets/icons/WhiteAddIcon.png" alt="Add Icon" className="w-4 h-4 mr-1" />
               <span>Add Player</span>
             </button>
