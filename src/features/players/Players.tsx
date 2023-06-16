@@ -1,22 +1,30 @@
 import { useState } from "react";
-import { useGetPlayersQuery, useAddPlayerMutation, useEditPlayerMutation } from "./playersApiSlice";
+import { useGetPlayersQuery, useAddPlayerMutation, useEditPlayerMutation, useDeletePlayerMutation } from "./playersApiSlice";
 import Player from "./Player";
 
 interface PlayerProps {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  number: string;
-  position: "GOAL_KEEPER" | "FULL_BACK_RIGHT" | "FULL_BACK_LEFT" | "CENTRE_BACK" | "SWEEPER" | "DEFENSIVE_MIDFIELD_RIGHT" | "DEFENSIVE_MIDFIELD_LEFT" | "SECOND_STRIKER" | "CENTRE_FORWARD";
+  player: {
+    id: number;
+    name: string;
+    username: string;
+    email: string;
+    number: string;
+    position: "GOAL_KEEPER" | "FULL_BACK_RIGHT" | "FULL_BACK_LEFT" | "CENTRE_BACK" | "SWEEPER" | "DEFENSIVE_MIDFIELD_RIGHT" | "DEFENSIVE_MIDFIELD_LEFT" | "SECOND_STRIKER" | "CENTRE_FORWARD";
+  };
+  openModal: (playerId: number) => void;
+  isEditing: boolean;
+  deletePlayer: (id: number) => void; // Add the deletePlayer prop
+  isDeletingPlayer: boolean; // Add the isDeletingPlayer prop
 }
 
 const Players = () => {
   const { data: players, isLoading, error } = useGetPlayersQuery({});
+  const [addPlayer, { isLoading: isAddingPlayer, isError }] = useAddPlayerMutation();
+  const [editPlayer, { isLoading: isEditingPlayer }] = useEditPlayerMutation();
+  const [deletePlayer, { isLoading: isDeletingPlayer }] = useDeletePlayerMutation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingPlayerId, setEditingPlayerId] = useState<number | null>(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [editPlayer, { isLoading: isEditingPlayer }] = useEditPlayerMutation();
   const [playerDetails, setPlayerDetails] = useState<PlayerProps>({
     id: "",
     name: "",
@@ -26,7 +34,6 @@ const Players = () => {
     position: "",
     availability_status: "PENDING"
   });
-  const [addPlayer, { isLoading: isAddingPlayer, isError }] = useAddPlayerMutation();
 
   const openModal = (playerId: number) => {
     setIsModalOpen(true);
@@ -65,6 +72,15 @@ const Players = () => {
         .catch((error) => {
           console.error("Error updating player:", error);
         });
+    } else if (player.id) {
+      deletePlayer(player.id)
+        .unwrap()
+        .then((response) => {
+          console.log("Player deleted successfully:", response);
+        })
+        .catch((error) => {
+          console.error("Error deleting player:", error);
+        });    
     } else {
       addPlayer(playerDetails)
         .unwrap()
@@ -148,7 +164,9 @@ const Players = () => {
                   key={player.id}
                   player={player}
                   openModal={openModal}
-                  isEditing={isEditing} // Pass the isEditing prop
+                  isEditing={isEditing}
+                  deletePlayer={deletePlayer} // Pass the deletePlayer function
+                  isDeletingPlayer={isDeletingPlayer} // Pass the isDeletingPlayer variable
                 />
               ))              
             )}

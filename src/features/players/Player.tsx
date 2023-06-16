@@ -1,4 +1,5 @@
 import React from "react";
+import { useDeletePlayerMutation } from "./playersApiSlice";
 
 interface PlayerProps {
   player: {
@@ -7,11 +8,37 @@ interface PlayerProps {
     username: string;
     email: string;
     number: string;
-    position: "GOAL_KEEPER" | "FULL_BACK_RIGHT" | "FULL_BACK_LEFT" | "CENTRE_BACK" | "SWEEPER" | "DEFENSIVE_MIDFIELD_RIGHT" | "DEFENSIVE_MIDFIELD_LEFT" | "SECOND_STRIKER" | "CENTRE_FORWARD";
+    position:
+      | "GOAL_KEEPER"
+      | "FULL_BACK_RIGHT"
+      | "FULL_BACK_LEFT"
+      | "CENTRE_BACK"
+      | "SWEEPER"
+      | "DEFENSIVE_MIDFIELD_RIGHT"
+      | "DEFENSIVE_MIDFIELD_LEFT"
+      | "SECOND_STRIKER"
+      | "CENTRE_FORWARD";
   };
+  openModal: (playerId: number) => void;
+  isEditing: boolean;
+  deletePlayer: (id: number) => void; // Add the deletePlayer prop
+  isDeletingPlayer: boolean; // Add the isDeletingPlayer prop
 }
 
 const Player: React.FC<PlayerProps> = ({ player, openModal }) => {
+  const [deletePlayer, { isLoading: isDeleting }] = useDeletePlayerMutation();
+  
+  const handleDelete = () => {
+    deletePlayer(player.id)
+      .unwrap()
+      .then((response) => {
+        console.log("Player deleted successfully:", response);
+      })
+      .catch((error) => {
+        console.error("Error deleting player:", error);
+      });
+  };
+  
   return (
     <tr className="p-4 border-b-2 border-gray-300 bg-white">
       <td className="w-1/6 text-left pl-4 h-16">{player.name}</td>
@@ -45,7 +72,7 @@ const Player: React.FC<PlayerProps> = ({ player, openModal }) => {
       </td>
       <td>
         {/* Delete button */}
-        <button className="text-blue-700">
+        <button className="text-blue-700" onClick={handleDelete}>
           <img
             src="/assets/icons/DeleteIcon.png"
             alt="Options Icon"

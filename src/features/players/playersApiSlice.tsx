@@ -29,11 +29,21 @@ export const playersApiSlice = apiSlice.injectEndpoints({
         body: player,
       }),
     }),
+    deletePlayer: builder.mutation({
+      query: (id) => ({
+        url: `/players/${id}`,
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+    }),
   }),
 });
 
 export const {
   useGetPlayersQuery,
   useAddPlayerMutation,
-  useEditPlayerMutation
+  useEditPlayerMutation,
+  useDeletePlayerMutation
 } = playersApiSlice;
