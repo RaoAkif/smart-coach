@@ -124,7 +124,7 @@ const Players = () => {
               </select>
 
               <div className="flex justify-between">
-                <button className="bg-white font-semibold text-gray-700 border border-gray-300 px-4 py-2 rounded-md w-5/12">Cancel</button>
+                <button className="bg-white font-semibold text-gray-700 border border-gray-300 px-4 py-2 rounded-md w-5/12" onClick={closeModal}>Cancel</button>
                 <button className="bg-blue-700 text-white px-4 py-2 rounded-md w-5/12">Add Player</button>
               </div>
             </form>
