@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGetPlayersQuery } from "./playersApiSlice";
+import { useGetPlayersQuery, useAddPlayerMutation } from "./playersApiSlice";
 import Player from "./Player";
 
 interface PlayerProps {
@@ -8,12 +8,22 @@ interface PlayerProps {
   username: string;
   email: string;
   number: string;
-  position: string;
+  position: "GOAL_KEEPER" | "FULL_BACK_RIGHT" | "FULL_BACK_LEFT" | "CENTRE_BACK" | "SWEEPER" | "DEFENSIVE_MIDFIELD_RIGHT" | "DEFENSIVE_MIDFIELD_LEFT" | "SECOND_STRIKER" | "CENTRE_FORWARD";
+  availability_status: "PENDING" | "GOING" | "NOT_GOING";
 }
 
 const Players = () => {
   const { data: players, isLoading, error } = useGetPlayersQuery({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [playerDetails, setPlayerDetails] = useState({
+    name: "",
+    username: "",
+    email: "",
+    number: "",
+    position: "",
+  });
+
+  const [addPlayer, { isLoading: isAddingPlayer, isError }] = useAddPlayerMutation();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -21,6 +31,27 @@ const Players = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    addPlayer(playerDetails)
+      .unwrap()
+      .then((response) => {
+        console.log("Player added successfully:", response);
+        closeModal();
+      })
+      .catch((error) => {
+        console.error("Error adding player:", error);
+      });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setPlayerDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
   };
 
   if (isLoading) {
@@ -92,21 +123,28 @@ const Players = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white rounded-lg p-6 overflow-y-auto" style={{ width: '544px', height: '480px' }}>
             <h2 className="text-xl font-bold mb-6 text-center">Add Player Details</h2>
-            <form className="flex flex-col gap-4">
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
               <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" name="name" className="border border-gray-300 rounded-md px-2 py-1 w-full" placeholder="Adrian Dubler" />
-
+              <input
+                type="text"
+                id="name"
+                name="name"
+                className="border border-gray-300 rounded-md px-2 py-1 w-full"
+                placeholder="Adrian Dubler"
+                value={playerDetails.name}
+                onChange={handleChange}
+              />
               <label htmlFor="username">Username</label>
-              <input type="text" id="username" name="username" className="border border-gray-300 rounded-md px-2 py-1 w-full" placeholder="@adrian" />
+              <input type="text" id="username" name="username" className="border border-gray-300 rounded-md px-2 py-1 w-full" placeholder="@adrian" value={playerDetails.username} onChange={handleChange} />
 
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" className="border border-gray-300 rounded-md px-2 py-1 w-full" placeholder="adrian@gmail.com" />
+              <input type="email" id="email" name="email" className="border border-gray-300 rounded-md px-2 py-1 w-full" placeholder="adrian@gmail.com" value={playerDetails.email} onChange={handleChange} />
 
               <label htmlFor="number">Phone Number</label>
-              <input type="text" id="number" name="number" className="border border-gray-300 rounded-md px-2 py-1 w-full" placeholder="+1 234 567 890" />
+              <input type="text" id="number" name="number" className="border border-gray-300 rounded-md px-2 py-1 w-full" placeholder="+1 234 567 890" value={playerDetails.number} onChange={handleChange} />
 
               <label htmlFor="position">Position</label>
-              <select id="position" name="position" className="border border-gray-300 rounded-md px-2 py-1 w-full">
+              <select id="position" name="position" className="border border-gray-300 rounded-md px-2 py-1 w-full" value={playerDetails.position} onChange={handleChange}>
                 <option value="">Select a position</option>
                 <option value="GOAL_KEEPER">GOAL_KEEPER</option>
                 <option value="FULL_BACK_RIGHT">FULL_BACK_RIGHT</option>
@@ -120,7 +158,7 @@ const Players = () => {
               </select>
 
               <label htmlFor="availability">Availability Status</label>
-              <select id="availability" name="availability" className="border border-gray-300 rounded-md px-2 py-1 w-full">
+              <select id="availability" name="availability" className="border border-gray-300 rounded-md px-2 py-1 w-full" value={playerDetails.availability_status} onChange={handleChange}>
                 <option value="PENDING">PENDING</option>
                 <option value="GOING">GOING</option>
                 <option value="NOT_GOING">NOT GOING</option>
@@ -128,7 +166,9 @@ const Players = () => {
 
               <div className="flex justify-between">
                 <button className="bg-white font-semibold text-gray-700 border border-gray-300 px-4 py-2 rounded-md w-5/12" onClick={closeModal}>Cancel</button>
-                <button className="bg-blue-700 text-white px-4 py-2 rounded-md w-5/12">Add Player</button>
+                <button className="bg-blue-700 text-white px-4 py-2 rounded-md w-5/12" type="submit">
+                  {isAddingPlayer ? "Adding..." : "Add Player"}
+                </button>
               </div>
             </form>
 

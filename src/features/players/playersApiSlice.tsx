@@ -9,9 +9,20 @@ export const playersApiSlice = apiSlice.injectEndpoints({
         params,
       }),
     }),
+    addPlayer: builder.mutation({
+      query: (player) => ({
+        url: "/players",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: player,
+      }),
+    }),
   }),
 });
 
 export const {
   useGetPlayersQuery,
+  useAddPlayerMutation
 } = playersApiSlice;
