@@ -29,7 +29,7 @@ const Players = () => {
     position: "GOAL_KEEPER"
   });
 
-  const openModal = (playerId?: number) => {
+const openModal = (playerId?: number) => {
     setIsModalOpen(true);
     setEditingPlayerId(playerId || null);
     setIsEditing(Boolean(playerId));
@@ -144,31 +144,16 @@ const Players = () => {
             </tr>
           </thead>
           <tbody>
-            {players.length === 0 ? (
-              <tr>
-                <td colSpan={7} className="text-center flex">
-                  <button onClick={openModal}>
-                    <img
-                      src="/assets/icons/AddButtonDottedOutline.png"
-                      alt="Add Icon"
-                      className="w-4 h-4 mr-1"
-                    />
-                  </button>
-                  <div>Add player</div>
-                </td>
-              </tr>
-            ) : (
-              players.map((player: PlayerProps) => (
-                <Player
-                  key={player.id}
-                  player={player}
-                  openModal={openModal}
-                  isEditing={isEditing}
-                  deletePlayer={deletePlayer} // Pass the deletePlayer function
-                  isDeletingPlayer={isDeletingPlayer} // Pass the isDeletingPlayer variable
-                />
-              ))              
-            )}
+            {players.map((player: PlayerProps) => (
+              <Player
+                key={player.id}
+                player={player}
+                openModal={openModal}
+                isEditing={isEditing}
+                deletePlayer={deletePlayer} // Pass the deletePlayer function
+                isDeletingPlayer={isDeletingPlayer} // Pass the isDeletingPlayer variable
+              />
+            ))}
           </tbody>
         </table>
       </div>
