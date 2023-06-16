@@ -42,13 +42,36 @@ const DashSidebar = () => {
             >
               <div className="flex items-center">
                 <img
+                  src="/assets/icons/PlayersIcon.png"
+                  alt="My Team Icon"
+                  width={22}
+                  height={22}
+                />
+                <span className="ml-2 font-semibold text-sm hover:underline">
+                  Players
+                </span>
+              </div>
+            </li>
+          </NavLink>
+
+          {/* My Team menu item */}
+          <NavLink to="/dashboard/teams">
+            <li
+              className={
+                pathName === '/dashboard/teams'
+                  ? 'active my-2 py-2 px-3'
+                  : 'my-2 py-2 px-3'
+              }
+            >
+              <div className="flex items-center">
+                <img
                   src="/assets/icons/MyTeamIcon.png"
                   alt="My Team Icon"
                   width={18}
                   height={18}
                 />
                 <span className="ml-2 font-semibold text-sm hover:underline">
-                  My Team
+                  My Teams
                 </span>
               </div>
             </li>

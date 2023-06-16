@@ -3,11 +3,11 @@ import Heading from '../Heading';
 
 const DashHeader = () => {
   return (
-    <div className="flex justify-between items-center border-b-2">
+    <div className="flex justify-between items-center border-b-2 -mr-16">
       <div className="p-6">
         <Heading text="Home" />
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center pr-12">
         <div className="mr-6">
           <CreateButton text="Create event" />
         </div>
