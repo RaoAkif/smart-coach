@@ -22,7 +22,7 @@ const Players = () => {
   }
 
   return (
-    <div className="bg-white rounded-xl border border-solid border-gray-300 w-full m-10">
+    <div className="bg-white rounded-xl border border-solid border-gray-300 w-full m-10 pb-2">
       <div>
         <div className="flex justify-between items-center p-4 border-b-2 border-solid border-gray-300">
           <div className="flex justify-between items-center p-4">
@@ -56,9 +56,21 @@ const Players = () => {
             </tr>
           </thead>
           <tbody>
-            {players?.map((player: PlayerProps) => (
-              <Player key={player.id} player={player} />
-            ))}
+            {players.length === 0 ? (
+              <tr>
+                <td colSpan={7} className="text-center">
+                  <img
+                    src="/assets/icons/AddButtonDottedOutline.png"
+                    alt="Add Icon"
+                    className="w-4 h-4 mr-1"
+                  />
+                </td>
+              </tr>
+            ) : (
+              players.map((player: PlayerProps) => (
+                <Player key={player.id} player={player} />
+              ))
+            )}
           </tbody>
         </table>
       </div>
