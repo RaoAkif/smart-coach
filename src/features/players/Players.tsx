@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGetPlayersQuery, useAddPlayerMutation } from "./playersApiSlice";
+import { useGetPlayersQuery, useAddPlayerMutation, useEditPlayerMutation } from "./playersApiSlice";
 import Player from "./Player";
 
 interface PlayerProps {
@@ -14,7 +14,11 @@ interface PlayerProps {
 const Players = () => {
   const { data: players, isLoading, error } = useGetPlayersQuery({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [playerDetails, setPlayerDetails] = useState({
+  const [editingPlayerId, setEditingPlayerId] = useState<number | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editPlayer, { isLoading: isEditingPlayer }] = useEditPlayerMutation();
+  const [playerDetails, setPlayerDetails] = useState<PlayerProps>({
+    id: "",
     name: "",
     username: "",
     email: "",
@@ -22,28 +26,56 @@ const Players = () => {
     position: "",
     availability_status: "PENDING"
   });
-
   const [addPlayer, { isLoading: isAddingPlayer, isError }] = useAddPlayerMutation();
 
-  const openModal = () => {
+  const openModal = (playerId: number) => {
     setIsModalOpen(true);
+    setEditingPlayerId(playerId);
+    setIsEditing(true);
+    const player = players.find((player) => player.id === playerId);
+    if (player) {
+      setPlayerDetails(player);
+    }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setIsEditing(false);
+    setEditingPlayerId(null);
+    setPlayerDetails({
+      id: 0,
+      name: "",
+      username: "",
+      email: "",
+      number: "",
+      position: "",
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    addPlayer(playerDetails)
-      .unwrap()
-      .then((response) => {
-        console.log("Player added successfully:", response);
-        closeModal();
-      })
-      .catch((error) => {
-        console.error("Error adding player:", error);
-      });
+
+    if (isEditing && editingPlayerId) {
+      editPlayer({ id: editingPlayerId, ...playerDetails })
+        .unwrap()
+        .then((response) => {
+          console.log("Player updated successfully:", response);
+          closeModal();
+        })
+        .catch((error) => {
+          console.error("Error updating player:", error);
+        });
+    } else {
+      addPlayer(playerDetails)
+        .unwrap()
+        .then((response) => {
+          console.log("Player added successfully:", response);
+          closeModal();
+        })
+        .catch((error) => {
+          console.error("Error adding player:", error);
+        });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -112,8 +144,13 @@ const Players = () => {
               </tr>
             ) : (
               players.map((player: PlayerProps) => (
-                <Player key={player.id} player={player} />
-              ))
+                <Player
+                  key={player.id}
+                  player={player}
+                  openModal={openModal}
+                  isEditing={isEditing} // Pass the isEditing prop
+                />
+              ))              
             )}
           </tbody>
         </table>
@@ -122,7 +159,9 @@ const Players = () => {
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white rounded-lg p-6 overflow-y-auto" style={{ width: '544px', height: '480px' }}>
-            <h2 className="text-xl font-bold mb-6 text-center">Add Player Details</h2>
+            <h2 className="text-xl font-bold mb-6 text-center">
+              {isEditing ? "Edit Player Details" : "Add Player Details"}
+            </h2>
             <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
               <label htmlFor="name">Full Name</label>
               <input
@@ -159,7 +198,7 @@ const Players = () => {
               <div className="flex justify-between">
                 <button className="bg-white font-semibold text-gray-700 border border-gray-300 px-4 py-2 rounded-md w-5/12" onClick={closeModal}>Cancel</button>
                 <button className="bg-blue-700 text-white px-4 py-2 rounded-md w-5/12" type="submit">
-                  {isAddingPlayer ? "Adding..." : "Add Player"}
+                  {isEditing ? "Update Player" : isAddingPlayer ? "Adding..." : "Add Player"}
                 </button>
               </div>
             </form>

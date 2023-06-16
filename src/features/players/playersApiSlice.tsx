@@ -19,10 +19,21 @@ export const playersApiSlice = apiSlice.injectEndpoints({
         body: player,
       }),
     }),
+    editPlayer: builder.mutation({
+      query: ({ id, ...player }) => ({
+        url: `/players/${id}`,
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: player,
+      }),
+    }),
   }),
 });
 
 export const {
   useGetPlayersQuery,
-  useAddPlayerMutation
+  useAddPlayerMutation,
+  useEditPlayerMutation
 } = playersApiSlice;
