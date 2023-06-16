@@ -31,9 +31,9 @@ const Players = () => {
 
   const openModal = (playerId?: number) => {
     setIsModalOpen(true);
-    setEditingPlayerId(playerId);
+    setEditingPlayerId(playerId || null);
     setIsEditing(Boolean(playerId));
-    const player = players.find((player) => player.id === playerId);
+    const player = players.find((player: { id: number | undefined; }) => player.id === playerId);
     if (player) {
       setPlayerDetails(player);
     } else {
@@ -66,7 +66,7 @@ const Players = () => {
     e.preventDefault();
 
     if (isEditing && editingPlayerId) {
-      editPlayer({ id: editingPlayerId, ...playerDetails })
+      editPlayer({ ...playerDetails })
         .unwrap()
         .then((response) => {
           console.log("Player updated successfully:", response);

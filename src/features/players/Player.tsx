@@ -26,7 +26,7 @@ interface PlayerProps {
 }
 
 const Player: React.FC<PlayerProps> = ({ player, openModal }) => {
-  const [deletePlayer, { isLoading: isDeleting }] = useDeletePlayerMutation();
+  const [deletePlayer] = useDeletePlayerMutation();
   
   const handleDelete = () => {
     deletePlayer(player.id)
