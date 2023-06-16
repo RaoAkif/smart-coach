@@ -9,7 +9,6 @@ interface PlayerProps {
   email: string;
   number: string;
   position: "GOAL_KEEPER" | "FULL_BACK_RIGHT" | "FULL_BACK_LEFT" | "CENTRE_BACK" | "SWEEPER" | "DEFENSIVE_MIDFIELD_RIGHT" | "DEFENSIVE_MIDFIELD_LEFT" | "SECOND_STRIKER" | "CENTRE_FORWARD";
-  availability_status: "PENDING" | "GOING" | "NOT_GOING";
 }
 
 const Players = () => {
@@ -21,6 +20,7 @@ const Players = () => {
     email: "",
     number: "",
     position: "",
+    availability_status: "PENDING"
   });
 
   const [addPlayer, { isLoading: isAddingPlayer, isError }] = useAddPlayerMutation();
@@ -156,14 +156,6 @@ const Players = () => {
                 <option value="SECOND_STRIKER">SECOND_STRIKER</option>
                 <option value="CENTRE_FORWARD">CENTRE_FORWARD</option>
               </select>
-
-              <label htmlFor="availability">Availability Status</label>
-              <select id="availability" name="availability" className="border border-gray-300 rounded-md px-2 py-1 w-full" value={playerDetails.availability_status} onChange={handleChange}>
-                <option value="PENDING">PENDING</option>
-                <option value="GOING">GOING</option>
-                <option value="NOT_GOING">NOT GOING</option>
-              </select>
-
               <div className="flex justify-between">
                 <button className="bg-white font-semibold text-gray-700 border border-gray-300 px-4 py-2 rounded-md w-5/12" onClick={closeModal}>Cancel</button>
                 <button className="bg-blue-700 text-white px-4 py-2 rounded-md w-5/12" type="submit">
