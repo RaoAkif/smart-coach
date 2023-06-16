@@ -68,12 +68,15 @@ const Players = () => {
           <tbody>
             {players.length === 0 ? (
               <tr>
-                <td colSpan={7} className="text-center">
-                  <img
-                    src="/assets/icons/AddButtonDottedOutline.png"
-                    alt="Add Icon"
-                    className="w-4 h-4 mr-1"
-                  />
+                <td colSpan={7} className="text-center flex">
+                  <button onClick={openModal}>
+                    <img
+                      src="/assets/icons/AddButtonDottedOutline.png"
+                      alt="Add Icon"
+                      className="w-4 h-4 mr-1"
+                    />
+                  </button>
+                  <div>Add player</div>
                 </td>
               </tr>
             ) : (
