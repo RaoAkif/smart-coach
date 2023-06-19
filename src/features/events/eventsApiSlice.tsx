@@ -9,6 +9,12 @@ export const eventsApiSlice = apiSlice.injectEndpoints({
         params,
       }),
     }),
+    getEventsWithPlayers: builder.query({
+      query: (id) => ({
+        url: `/events/${id}/players`,
+        method: 'GET',
+      }),
+    }),
     addEvent: builder.mutation({
       query: (event) => ({
         url: "/events",
@@ -42,6 +48,7 @@ export const eventsApiSlice = apiSlice.injectEndpoints({
 });
 
 export const {
+  useGetEventsWithPlayersQuery,
   useGetEventsQuery,
   useAddEventMutation,
   useEditEventMutation,

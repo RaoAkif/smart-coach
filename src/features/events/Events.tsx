@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useGetEventsQuery, useAddEventMutation, useEditEventMutation, useDeleteEventMutation } from "./eventsApiSlice";
+import { Link } from "react-router-dom";
 
 interface EventProps {
   id: number;
@@ -26,8 +27,6 @@ const Events = () => {
     location: "",
     details: ""
   });
-
-  console.log(events)
   
   const openModal = (event: EventProps | null = null) => {
     setIsModalOpen(true);
@@ -101,7 +100,6 @@ const Events = () => {
             </button>
           </div>
         </div>
-
         <table className="w-full">
           <thead className="h-11 border-b-2 bg-gray-100">
             <tr>
@@ -132,7 +130,11 @@ const Events = () => {
             ) : (
               events.map((event: EventProps) => (
                 <tr key={event.id}>
-                  <td className="pl-4">{event.title}</td>
+                  <td className="pl-4">
+                    <Link to={`/dashboard/events/${event.id}`}>
+                      {event.title}
+                    </Link>
+                  </td>
                   <td className="pl-4">{event.date}</td>
                   <td className="pl-4">{event.time}</td>
                   <td className="pl-4">{event.location}</td>
