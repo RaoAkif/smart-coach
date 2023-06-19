@@ -117,7 +117,8 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDb2FjaEluZm8iOnsiY29hY2hJZCI6MX0sImlhdCI6MTY4NjgxMTM3OCwiZXhwIjoxNjg3NDE2MTc4fQ.8erhupn7NVfkJtwzd26P87ZfopyA1jtsgviCSrbTjrw
 
 {
-  "playerIds": [1, 2]
+  "name": "Team 01",
+  "playerIds": [4, 5]
 }
 
 
@@ -133,11 +134,12 @@ GET https://smart-coach-api.vercel.app/api/teams/:id
 
 
 ### Update a team
-PUT https://smart-coach-api.vercel.app/api/teams/:id
+PUT https://smart-coach-api.vercel.app/api/teams/1
 Content-Type: application/json
 
 {
-  "playerIds": [3, 4]
+  "name": "Team 01",
+  "playerIds": [4, 5, 8]
 }
 
 
