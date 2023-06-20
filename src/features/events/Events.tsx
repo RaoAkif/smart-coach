@@ -139,7 +139,7 @@ const Events = () => {
               </tr>
             ) : (
               events.map((event: EventProps) => (
-                <tr key={event.id}>
+                <tr key={event.id} className="h-16 border-t border-gray-300 bg-white">
                   <td className="pl-4">
                     <Link to={`/dashboard/events/${event.id}`}>
                       {event.title}
@@ -149,11 +149,30 @@ const Events = () => {
                   <td className="pl-4">{event.start_time}</td>
                   <td className="pl-4">{event.location}</td>
                   <td className="pl-4">{event.details}</td>
-                  <td>
-                    <button className="text-blue-700 font-semibold hover:underline" onClick={() => openModal(event)}>Edit</button>
+                  <td className="text-right">
+                    <button
+                      onClick={() => openModal(event)}
+                    >
+                      <img
+                        src="/assets/icons/EditIcon.png"
+                        alt="Edit Icon"
+                        width={17}
+                        height={17}
+                      />
+                    </button>
                   </td>
-                  <td>
-                    <button className="text-red-700 font-semibold hover:underline" onClick={() => deleteEventById(event.id)} disabled={isDeletingEvent}>Delete</button>
+                  <td className="text-right pr-5">
+                    <button
+                      onClick={() => deleteEventById(event.id)}
+                      disabled={isDeletingEvent}
+                    >
+                      <img
+                        src="/assets/icons/DeleteIcon.png"
+                        alt="Delete Icon"
+                        width={17}
+                        height={17}
+                      />
+                    </button>
                   </td>
                 </tr>
               ))
