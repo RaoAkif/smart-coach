@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useGetEventsQuery, useAddEventMutation, useEditEventMutation, useDeleteEventMutation } from "./eventsApiSlice";
+import { useGetTeamsQuery } from "../teams/teamsApiSlice";
 import { Link } from "react-router-dom";
 
 type EventTypes = "PRACTICE" | "MATCH" | "OTHER";
@@ -15,11 +16,18 @@ interface EventProps {
   event_type: EventTypes;
 }
 
+interface Team {
+  id: number;
+  name: string;
+}
+
 const Events = () => {
   const { data: events, isLoading, error } = useGetEventsQuery({});
   const [addEvent] = useAddEventMutation();
   const [editEvent] = useEditEventMutation();
   const [deleteEvent, { isLoading: isDeletingEvent }] = useDeleteEventMutation();
+  const { data: teams } = useGetTeamsQuery({});
+  const [selectedTeam, setSelectedTeam] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddingEvent, setIsAddingEvent] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -67,12 +75,14 @@ const Events = () => {
   };
 
   const saveEvent = () => {
+    const { id, ...eventData } = eventDetails; // Remove the 'id' property
+  
     if (isAddingEvent) {
-      addEvent(eventDetails);
+      addEvent({ ...eventData, teamId: selectedTeam });
     } else if (isEditing) {
-      editEvent({ eventDetails });
+      editEvent({ eventId: id, eventData });
     }
-
+  
     closeModal();
   };
 
@@ -188,7 +198,7 @@ const Events = () => {
               {isEditing ? "Edit Event Details" : "Add Event Details"}
             </h2>
             <form className="flex flex-col gap-4" onSubmit={saveEvent}>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="title">Title</label>
               <input
                 type="text"
                 id="name"
@@ -198,7 +208,23 @@ const Events = () => {
                 value={eventDetails.title}
                 onChange={(e) => setEventDetails({ ...eventDetails, title: e.target.value })}
               />
-              
+
+              <label htmlFor="team">Select Team</label>
+                <select
+                  id="team"
+                  name="team"
+                  className="border border-gray-300 rounded-md px-2 py-1"
+                  value={selectedTeam === null ? "" : selectedTeam}
+                  onChange={(e) => setSelectedTeam(Number(e.target.value))}
+                >
+                  <option value="">Select a team</option>
+                  {teams &&
+                    teams.map((team: Team) => (
+                      <option key={team.id} value={team.id}>
+                        {team.name}
+                      </option>
+                    ))}
+                </select>
               <label htmlFor="event-type">Event Type</label>
               <select
                 id="event-type"
