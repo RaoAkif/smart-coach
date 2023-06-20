@@ -32,7 +32,7 @@ export const eventsApiSlice = apiSlice.injectEndpoints({
         headers: {
           'Content-Type': 'application/json',
         },
-        body: event,
+        body: { ...event },
       }),
     }),
     deleteEvent: builder.mutation({
