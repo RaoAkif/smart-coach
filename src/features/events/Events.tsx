@@ -2,13 +2,17 @@ import { useState } from "react";
 import { useGetEventsQuery, useAddEventMutation, useEditEventMutation, useDeleteEventMutation } from "./eventsApiSlice";
 import { Link } from "react-router-dom";
 
+type EventTypes = "PRACTICE" | "MATCH" | "OTHER";
+
 interface EventProps {
   id: number;
   title: string;
   date: string;
-  time: string;
+  start_time: string;
+  end_time: string;
   location: string;
   details: string;
+  event_type: EventTypes;
 }
 
 const Events = () => {
@@ -23,9 +27,11 @@ const Events = () => {
     id: 0,
     title: "",
     date: "",
-    time: "",
+    start_time: "",
+    end_time: "",
     location: "",
-    details: ""
+    details: "",
+    event_type: "OTHER"
   });
   
   const openModal = (event: EventProps | null = null) => {
@@ -36,9 +42,11 @@ const Events = () => {
       id: 0,
       title: "",
       date: "",
-      time: "",
+      start_time: "",
+      end_time: "",
       location: "",
-      details: ""
+      details: "",
+      event_type: "OTHER"
     });
   };
 
@@ -50,9 +58,11 @@ const Events = () => {
       id: 0,
       title: "",
       date: "",
-      time: "",
+      start_time: "",
+      end_time: "",
       location: "",
-      details: ""
+      details: "",
+      event_type: "OTHER"
     });
   };
 
@@ -105,7 +115,7 @@ const Events = () => {
             <tr>
               <th className="w-1/6 text-left pl-4">Title</th>
               <th className="w-1/6 text-left pl-4">Date</th>
-              <th className="w-1/6 text-left pl-4">Time</th>
+              <th className="w-1/6 text-left pl-4">Start Time</th>
               <th className="w-1/6 text-left pl-4">Location</th>
               <th className="w-1/6 text-left pl-4">Details</th>
               <th className="w-1/12" colSpan={2}></th> {/* Empty space for edit and delete columns */}
@@ -136,7 +146,7 @@ const Events = () => {
                     </Link>
                   </td>
                   <td className="pl-4">{event.date}</td>
-                  <td className="pl-4">{event.time}</td>
+                  <td className="pl-4">{event.start_time}</td>
                   <td className="pl-4">{event.location}</td>
                   <td className="pl-4">{event.details}</td>
                   <td>
@@ -169,6 +179,24 @@ const Events = () => {
                 value={eventDetails.title}
                 onChange={(e) => setEventDetails({ ...eventDetails, title: e.target.value })}
               />
+              
+              <label htmlFor="event-type">Event Type</label>
+              <select
+                id="event-type"
+                name="event-type"
+                className="border border-gray-300 rounded-md px-2 py-1 w-full"
+                value={eventDetails.event_type}
+                onChange={(e) =>
+                  setEventDetails({
+                    ...eventDetails,
+                    event_type: e.target.value as EventTypes
+                  })
+                }
+              >
+                <option value="PRACTICE">Practice</option>
+                <option value="MATCH">Match</option>
+                <option value="OTHER">Other</option>
+              </select>
 
               <label htmlFor="date">Date</label>
               <input
@@ -180,14 +208,24 @@ const Events = () => {
                 onChange={(e) => setEventDetails({ ...eventDetails, date: e.target.value })}
               />
 
-              <label htmlFor="time">Time</label>
+              <label htmlFor="time">Start Time</label>
               <input
                 type="time"
                 id="time"
                 name="time"
                 className="border border-gray-300 rounded-md px-2 py-1 w-full"
-                value={eventDetails.time}
-                onChange={(e) => setEventDetails({ ...eventDetails, time: e.target.value })}
+                value={eventDetails.start_time}
+                onChange={(e) => setEventDetails({ ...eventDetails, start_time: e.target.value })}
+              />
+
+              <label htmlFor="time">End Time</label>
+              <input
+                type="time"
+                id="time"
+                name="time"
+                className="border border-gray-300 rounded-md px-2 py-1 w-full"
+                value={eventDetails.end_time}
+                onChange={(e) => setEventDetails({ ...eventDetails, end_time: e.target.value })}
               />
 
               <label htmlFor="location">Location</label>

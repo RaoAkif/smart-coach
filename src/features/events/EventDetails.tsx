@@ -23,7 +23,9 @@ const EventDetails = () => {
       <p>Event ID: {eventId}</p>
       <p>Title: {event.title}</p>
       <p>Date: {event.date}</p>
-      <p>Time: {event.time}</p>
+      <p>Date: {event.date}</p>
+      <p>Start Time: {event.start_time}</p>
+      <p>End Time: {event.end_time}</p>
       <p>Location: {event.location}</p>
       <p>Details: {event.details}</p>
       <p>Team: {event.Team.name}</p>
