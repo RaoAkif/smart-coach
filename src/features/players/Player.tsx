@@ -40,7 +40,7 @@ const Player: React.FC<PlayerProps> = ({ player, openModal }) => {
   };
   
   return (
-    <tr className="p-4 border-b-2 border-gray-300 bg-white">
+    <tr className="p-4 border-t border-gray-300 bg-white">
       <td className="w-1/6 text-left pl-4 h-16">{player.name}</td>
       <td className="w-1/6 text-left pl-4 h-16">{player.position}</td>
       <td className="w-1/6 text-left pl-4 h-16">{player.email}</td>

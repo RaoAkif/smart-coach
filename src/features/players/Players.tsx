@@ -132,8 +132,8 @@ const openModal = (playerId?: number) => {
           </div>
         </div>
 
-        <table className="bg-gray-100 w-full">
-          <thead className="h-11 border-b-2 border-gray-300">
+        <table className="w-full">
+          <thead className="h-11 border-b-2 bg-gray-100">
             <tr>
               <th className="w-1/6 text-left pl-4">Name</th>
               <th className="w-1/6 text-left pl-4">Position</th>
@@ -144,16 +144,33 @@ const openModal = (playerId?: number) => {
             </tr>
           </thead>
           <tbody>
-            {players.map((player: PlayerProps) => (
-              <Player
-                key={player.id}
-                player={player}
-                openModal={openModal}
-                isEditing={isEditing}
-                deletePlayer={deletePlayer} // Pass the deletePlayer function
-                isDeletingPlayer={isDeletingPlayer} // Pass the isDeletingPlayer variable
-              />
-            ))}
+          {players.length === 0 ? (
+              <tr>
+                <td colSpan={7}>
+                  <button onClick={() => openModal()} className="flex text-center pt-5 pb-2 pl-5 justify-center items-center">
+                    <img
+                      src="/assets/icons/AddButtonDottedOutline.png"
+                      alt="Add Icon"
+                      className="mr-2"
+                      width={25}
+                      height={25}
+                    />
+                  <p className="text-sm bg-white">Add player</p>
+                  </button>
+                </td>
+              </tr>
+            ) : (
+              players.map((player: PlayerProps) => (
+                <Player
+                  key={player.id}
+                  player={player}
+                  openModal={openModal}
+                  isEditing={isEditing}
+                  deletePlayer={deletePlayer} // Pass the deletePlayer function
+                  isDeletingPlayer={isDeletingPlayer} // Pass the isDeletingPlayer variable
+                />
+              ))              
+            )}
           </tbody>
         </table>
       </div>

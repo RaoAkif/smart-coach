@@ -8,6 +8,7 @@ import Home from './features/auth/Home'
 import Players from './features/players/Players'
 import Teams from './features/teams/Teams'
 import Events from './features/events/Events'
+import EventDetails from './features/events/EventDetails'
 import { store } from './redux/store'
 import { Provider } from 'react-redux'
 
@@ -24,16 +25,17 @@ function App() {
 
             <Route index element={<Home />} />
 
-            <Route path="events">
-              <Route index element={<Events />} />
-            </Route>
-
             <Route path="players">
               <Route index element={<Players />} />
             </Route>
 
             <Route path="teams">
               <Route index element={<Teams />} />
+            </Route>
+
+            <Route path="events">
+              <Route index element={<Events />} />
+              <Route path=":eventId" element={<EventDetails />} />
             </Route>
 
           </Route>{/* End Dash */}
