@@ -19,6 +19,7 @@ interface EventProps {
   location: string;
   details: string;
   event_type: EventTypes;
+  teamId?: number;
 }
 
 interface Team {
@@ -64,7 +65,14 @@ const Events = () => {
         event_type: "OTHER",
       }
     );
-  };
+    
+    // Set the selected team if editing an event
+    if (event && event.teamId !== undefined) {
+      setSelectedTeam(event.teamId);
+    } else {
+      setSelectedTeam(null);
+    }
+  }; // Add this closing bracket
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -84,15 +92,15 @@ const Events = () => {
 
   const saveEvent = () => {
     const { id, ...eventData } = eventDetails; // Remove the 'id' property
-
+  
     if (isAddingEvent) {
       addEvent({ ...eventData, teamId: selectedTeam });
     } else if (isEditing) {
-      editEvent({ id: id, ...eventData });
+      editEvent({ id: id, ...eventData, teamId: selectedTeam });
     }
-
+  
     closeModal();
-  };
+  };  
 
   const deleteEventById = (eventId: number) => {
     deleteEvent(eventId);
