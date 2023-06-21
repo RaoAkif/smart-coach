@@ -29,11 +29,11 @@ const Teams = () => {
     data: players,
     isLoading: isPlayersLoading,
     error: playersError,
-  } = useGetPlayersQuery();
+  } = useGetPlayersQuery({});
+  
   const [addTeam] = useAddTeamMutation();
   const [editTeam] = useEditTeamMutation();
   const [deleteTeam, { isLoading: isDeletingTeam }] = useDeleteTeamMutation();
-  const [selectedTeam, setSelectedTeam] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddingTeam, setIsAddingTeam] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -234,7 +234,7 @@ const Teams = () => {
           className='border border-gray-300 rounded-md px-2 py-1 w-full mb-4'
         />
         <h3>Players:</h3>
-        {players.map((player) => (
+        {players.map((player: { id: number; name: string }) => (
           <div key={player.id} className='mb-2'>
             <input
               type='checkbox'
@@ -243,7 +243,7 @@ const Teams = () => {
               checked={teamDetails.players.some((p) => p.id === player.id)}
               onChange={(e) => {
                 const player = players.find(
-                  (p) => p.id.toString() === e.target.value
+                  (p: { id: number; name: string }) => p.id.toString() === e.target.value
                 );
                 if (player) {
                   if (e.target.checked) {
