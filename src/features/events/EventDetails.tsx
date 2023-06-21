@@ -1,6 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useGetEventsWithPlayersQuery } from "./eventsApiSlice";
 
+interface Player {
+  id: number;
+  name: string;
+}
+
 const EventDetails = () => {
   const { eventId } = useParams();
   const { data: event, isLoading, isError } = useGetEventsWithPlayersQuery(eventId);
@@ -31,7 +36,7 @@ const EventDetails = () => {
       <p>Team: {event.Team.name}</p>
       <p>Players:</p>
       <ul>
-        {event.Team.players.map((player) => (
+        {event.Team.players.map((player: Player) => (
           <li key={player.id}>{player.name}</li>
         ))}
       </ul>
