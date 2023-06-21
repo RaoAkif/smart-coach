@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  accessToken: "",
-  userInfo: {}, // for user object
+  accessToken: localStorage.getItem("accessToken") || "",
+  userInfo: {},
 };
 
 export const authSlice = createSlice({
@@ -18,12 +18,11 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
       state.accessToken = "";
-      localStorage.removeItem("accessToken"); // remove accessToken from local storage TO BE REMOVED
+      localStorage.removeItem("accessToken");
     },
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { login, logout } = authSlice.actions;
 
 export default authSlice.reducer;
