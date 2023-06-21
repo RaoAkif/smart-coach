@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../Logo";
 import { useLoginMutation } from "../../features/auth/authApiSlice";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const [login, { isLoading }] = useLoginMutation();
 
@@ -19,6 +22,8 @@ const LoginForm = () => {
           // Save the access token in LocalStorage
           localStorage.setItem("accessToken", accessToken);
           // Redirect or perform other actions
+          navigate("/dashboard");
+          // Redirect or perform other actions
           console.log("Login successful");
         })
         .catch((error) => {
@@ -27,6 +32,13 @@ const LoginForm = () => {
         });
     }
   };
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
 
   return (
     <div className="flex flex-col items-center mt-52">
