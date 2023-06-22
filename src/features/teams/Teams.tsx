@@ -101,7 +101,7 @@ const Teams = () => {
   return (
     <div className='bg-white rounded-xl border border-solid border-gray-300 w-full m-10 pb-2'>
       <div>
-        <div className='flex justify-between items-center p-4 border-b-2 border-solid border-gray-300'>
+        <div className='flex justify-between items-center p-4' style={{borderBottom: "1px solid #e5e7eb"}}>
           <div className='flex justify-between items-center p-4'>
             <div className='flex items-center gap-4'>
               <h2 className='text-lg font-bold'>All Teams</h2>
@@ -133,7 +133,7 @@ const Teams = () => {
         </div>
 
         <table className='w-full'>
-          <thead className='h-11 border-b-2 bg-gray-100'>
+          <thead className='h-11 bg-gray-100' style={{borderBottom: "1px solid #e5e7eb"}}>
             <tr>
               <th className='w-1/6 text-left pl-4'>Team Name</th>
               <th className='w-3/6 text-left pl-4'>Players</th>

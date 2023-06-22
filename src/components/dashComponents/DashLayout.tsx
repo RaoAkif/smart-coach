@@ -19,7 +19,7 @@ const DashLayout = () => {
         <aside className="w-2/12 pt-5">
           <DashSidebar />
         </aside>
-        <main className="border-l-2 border-[#eaecf0] w-full">
+        <main className="w-full" style={{borderLeft: "1px solid #e5e7eb"}}>
           <DashHeader />
           <Outlet />
         </main>
