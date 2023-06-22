@@ -185,7 +185,7 @@ const Events = () => {
                   className='h-16 border-t border-gray-300 bg-white'
                 >
                   <td className='pl-4'>
-                    <Link to={`/dashboard/events/${event.id}`}>
+                    <Link to={`/dashboard/events/${event.id}`} className="text-blue-700 underline font-bold" >
                       {event.title}
                     </Link>
                   </td>
