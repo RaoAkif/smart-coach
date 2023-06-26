@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import Public from './components/authComponents/Public'
 import Login from './features/auth/Login';
@@ -11,8 +11,19 @@ import Events from './features/events/Events'
 import EventDetails from './features/events/EventDetails'
 import { store } from './redux/store'
 import { Provider } from 'react-redux'
+import { useEffect } from 'react';
 
 function App() {
+  const navigate = useNavigate();
+  const pathname = location.pathname;
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken && pathname==='/') {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
+
   return (
     <Provider store={store}>
       <Routes>
