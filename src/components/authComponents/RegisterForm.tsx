@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAddCoachMutation } from "../../features/coaches/coachesApiSlice";
+import { useRegisterCoachMutation } from "../../features/coaches/coachesApiSlice";
 import Logo from "../Logo";
 
 interface FormValues {
@@ -11,7 +11,7 @@ interface FormValues {
 
 const RegisterForm = () => {
   const navigate = useNavigate();
-  const [addCoach] = useAddCoachMutation();
+  const [addCoach] = useRegisterCoachMutation();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
