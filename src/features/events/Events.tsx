@@ -8,9 +8,9 @@ import {
 import { useGetTeamsQuery } from "../teams/teamsApiSlice";
 import { Link } from "react-router-dom";
 
-type EventTypes = "PRACTICE" | "MATCH" | "OTHER";
+export type EventTypes = "PRACTICE" | "MATCH" | "OTHER";
 
-interface EventProps {
+export interface EventProps {
   id: number;
   title: string;
   date: string;
