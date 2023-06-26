@@ -7,7 +7,7 @@ import {
 } from "./teamsApiSlice";
 import { useGetPlayersQuery } from "../players/playersApiSlice";
 
-interface TeamProps {
+export interface TeamProps {
   id: number;
   name: string;
   players: {
@@ -30,7 +30,7 @@ const Teams = () => {
     isLoading: isPlayersLoading,
     error: playersError,
   } = useGetPlayersQuery({});
-  
+
   const [addTeam] = useAddTeamMutation();
   const [editTeam] = useEditTeamMutation();
   const [deleteTeam, { isLoading: isDeletingTeam }] = useDeleteTeamMutation();
@@ -69,7 +69,7 @@ const Teams = () => {
 
   const saveTeam = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     if (isAddingTeam) {
       await addTeam({
         name: teamDetails.name,
@@ -84,7 +84,7 @@ const Teams = () => {
     }
   
     closeModal();
-  };  
+  };
 
   const deleteTeamById = (teamId: number) => {
     deleteTeam(teamId);
