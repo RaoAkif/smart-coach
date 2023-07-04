@@ -5,7 +5,7 @@ const Logo = () => {
     <NavLink to="/dashboard">
       <div className='flex items-center ml-2'>
           <img
-            src='/assets/images/SmartCoachLogo.jpg'
+            src='/assets/images/SmartCoachLogo.png'
             alt='Smart Coach Logo'
             width={28}
             height={28}
