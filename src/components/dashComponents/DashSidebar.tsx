@@ -103,7 +103,7 @@ const DashSidebar = () => {
           </NavLink>
         </ul>
         {/* Help menu item */}
-        <ul className="mt-auto">
+        {/* <ul className="mt-auto">
           <li className="my-2 py-2 px-3">
             <div className="flex items-center">
               <img
@@ -117,7 +117,7 @@ const DashSidebar = () => {
               </span>
             </div>
           </li>
-        </ul>
+        </ul> */}
       </div>
       {/* Menu Items End */}
     </nav>

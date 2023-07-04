@@ -1,10 +1,11 @@
 type CreateButtonProps = {
   text: string;
+  onClick: () => void;
 };
 
-const CreateButton = ({ text }: CreateButtonProps) => {
+const CreateButton = ({ text, onClick }: CreateButtonProps) => {
   return (
-    <div className="flex items-center py-2 px-4 border-2 border-purple-800 rounded-md">
+    <div className="flex items-center py-2 px-4 border-2 border-purple-800 rounded-md" onClick={onClick}>
       <div className="">
         <img
           src="/assets/icons/AddIcon.png"

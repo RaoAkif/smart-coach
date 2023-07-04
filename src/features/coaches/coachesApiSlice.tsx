@@ -19,6 +19,16 @@ export const coachesApiSlice = apiSlice.injectEndpoints({
         body: coach,
       }),
     }),
+    registerCoach: builder.mutation({
+      query: (coach) => ({
+        url: '/coaches/register',
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: coach,
+      })
+    }),
     editCoach: builder.mutation({
       query: ({ id, ...coach }) => ({
         url: `/coaches/${id}`,
@@ -44,6 +54,7 @@ export const coachesApiSlice = apiSlice.injectEndpoints({
 export const {
   useGetCoachesQuery,
   useAddCoachMutation,
+  useRegisterCoachMutation,
   useEditCoachMutation,
   useDeleteCoachMutation
 } = coachesApiSlice;
