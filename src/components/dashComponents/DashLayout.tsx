@@ -14,7 +14,7 @@ const DashLayout = () => {
   }, [navigate]);
   
   return (
-    <div className="max-w-[1450px] mx-auto">
+    <div className="mx-auto">
       <div className="flex">
         <aside className="w-2/12 pt-5">
           <DashSidebar />
