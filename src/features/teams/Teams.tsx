@@ -22,136 +22,96 @@ export interface TeamProps {
 const Teams = () => {
   const teamsData = [
     {
+      id: 1,
       name: "Karachi Lions",
       players: [
-        "Neymar Jr.",
-        "Cristiano Ronaldo",
-        "Virgil van Dijk",
-        "Sergio Ramos",
-        "Kevin De Bruyne",
-        "Lionel Messi",
-        "Kylian Mbappé",
-        "Joshua Kimmich",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
     {
+      id: 2,
       name: "Lahore Tigers",
       players: [
-        "Sergio Ramos",
-        "Cristiano Ronaldo",
-        "Lionel Messi",
-        "Mohamed Salah",
-        "Neymar Jr.",
-        "Robert Lewandowski",
-        "Joshua Kimmich",
-        "Kevin De Bruyne",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
     {
+      id: 3,
       name: "Islamabad Eagles",
       players: [
-        "Kylian Mbappé",
-        "Virgil van Dijk",
-        "Sergio Ramos",
-        "Lionel Messi",
-        "Kevin De Bruyne",
-        "Neymar Jr.",
-        "Joshua Kimmich",
-        "Cristiano Ronaldo",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
     {
+      id: 4,
       name: "Rawalpindi Panthers",
       players: [
-        "Neymar Jr.",
-        "Sergio Ramos",
-        "Cristiano Ronaldo",
-        "Kevin De Bruyne",
-        "Lionel Messi",
-        "Kylian Mbappé",
-        "Mohamed Salah",
-        "Joshua Kimmich",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
     {
+      id: 5,
       name: "Faisalabad Bears",
       players: [
-        "Cristiano Ronaldo",
-        "Kevin De Bruyne",
-        "Virgil van Dijk",
-        "Lionel Messi",
-        "Sergio Ramos",
-        "Neymar Jr.",
-        "Robert Lewandowski",
-        "Joshua Kimmich",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
     {
+      id: 6,
       name: "Multan Wolves",
       players: [
-        "Neymar Jr.",
-        "Sergio Ramos",
-        "Lionel Messi",
-        "Kylian Mbappé",
-        "Joshua Kimmich",
-        "Cristiano Ronaldo",
-        "Virgil van Dijk",
-        "Kevin De Bruyne",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
     {
+      id: 7,
       name: "Peshawar Falcons",
       players: [
-        "Kevin De Bruyne",
-        "Cristiano Ronaldo",
-        "Lionel Messi",
-        "Joshua Kimmich",
-        "Virgil van Dijk",
-        "Sergio Ramos",
-        "Neymar Jr.",
-        "Robert Lewandowski",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
     {
+      id: 8,
       name: "Quetta Hawks",
       players: [
-        "Sergio Ramos",
-        "Virgil van Dijk",
-        "Joshua Kimmich",
-        "Lionel Messi",
-        "Cristiano Ronaldo",
-        "Kevin De Bruyne",
-        "Neymar Jr.",
-        "Kylian Mbappé",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
     {
+      id: 9,
       name: "Gujranwala Cougars",
       players: [
-        "Neymar Jr.",
-        "Lionel Messi",
-        "Sergio Ramos",
-        "Cristiano Ronaldo",
-        "Kevin De Bruyne",
-        "Joshua Kimmich",
-        "Virgil van Dijk",
-        "Robert Lewandowski",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
     {
+      id: 10,
       name: "Sialkot Wildcats",
       players: [
-        "Cristiano Ronaldo",
-        "Kevin De Bruyne",
-        "Lionel Messi",
-        "Kylian Mbappé",
-        "Sergio Ramos",
-        "Neymar Jr.",
-        "Virgil van Dijk",
-        "Joshua Kimmich",
+        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
+        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
+        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
       ],
     },
-  ];
+  ];  
 
   // console.log(teams);
 
@@ -386,44 +346,43 @@ const Teams = () => {
                 // ))
                 <>
                   {teamsData.map((team, index) => (
-                    <tr
-                      key={index}
-                      className='h-16 border-t border-gray-300 bg-white'
-                    >
-                      <td className='w-2/12 text-left pl-4 font-medium text-black'>{team.name}</td>
-                      <td className='w-7/12 text-left pl-4 text-gray-600 font-normal'>
-                        {team.players.map((player, index) => (
-                          <span key={index}>
-                            {player}
-                            {index !== team.players.length - 1 && ", "}
-                          </span>
-                        ))}
-                      </td>
-                      <td className='text-right'>
-                        <button onClick={() => openModal(team)}>
-                          <img
-                            src='/assets/icons/EditIcon.png'
-                            alt='Edit Icon'
-                            width={17}
-                            height={17}
-                          />
-                        </button>
-                      </td>
-                      <td className='text-right pr-5'>
-                        <button
-                          onClick={() => deleteTeamById(index)}
-                          disabled={isDeletingTeam}
-                        >
-                          <img
-                            src='/assets/icons/DeleteIcon.png'
-                            alt='Delete Icon'
-                            width={17}
-                            height={17}
-                          />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+  <tr key={index} className='h-16 border-t border-gray-300 bg-white'>
+    <td className='w-2/12 text-left pl-4 font-medium text-black'>
+      {team.name}
+    </td>
+    <td className='w-7/12 text-left pl-4 text-gray-600 font-normal'>
+      {team.players.map((player, index) => (
+        <span key={index}>
+          {player.name}
+          {index !== team.players.length - 1 && ", "}
+        </span>
+      ))}
+    </td>
+    <td className='text-right'>
+      <button onClick={() => openModal(team)}>
+        <img
+          src='/assets/icons/EditIcon.png'
+          alt='Edit Icon'
+          width={17}
+          height={17}
+        />
+      </button>
+    </td>
+    <td className='text-right pr-5'>
+      <button
+        onClick={() => deleteTeamById(team.id)}
+        disabled={isDeletingTeam}
+      >
+        <img
+          src='/assets/icons/DeleteIcon.png'
+          alt='Delete Icon'
+          width={17}
+          height={17}
+        />
+      </button>
+    </td>
+  </tr>
+))}
                 </>
               )}
             </tbody>
