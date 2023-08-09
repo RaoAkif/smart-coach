@@ -377,7 +377,7 @@ const Events = () => {
                       <td className='pl-4 font-normal'>{event.players}</td>
                       <td className='pl-4 font-normal'>{event.location}</td>
                       <td className='text-right'>
-                        <button onClick={() => openModal(event)}>
+                      <button onClick={() => openModal(event as never)}>
                           <img
                             src='/assets/icons/EditIcon.png'
                             alt='Edit Icon'
