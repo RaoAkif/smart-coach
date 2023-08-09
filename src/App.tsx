@@ -22,7 +22,7 @@ function App() {
     if (accessToken && pathname==='/') {
       navigate("/dashboard");
     }
-  }, [navigate]);
+  }, [navigate, pathname]);
 
   return (
     <Provider store={store}>

@@ -102,7 +102,40 @@ const openModal = (playerId?: number) => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{width: '50px', position: 'relative', left: '30vw', top: '30vh'}}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+          className="loading-spinner"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="none"
+            stroke="#007bff"
+            strokeWidth="6"
+            strokeLinecap="round"
+          >
+            <animate
+              attributeName="stroke-dashoffset"
+              dur="2s"
+              repeatCount="indefinite"
+              from="0"
+              to="502"
+            />
+            <animate
+              attributeName="stroke-dasharray"
+              dur="2s"
+              repeatCount="indefinite"
+              values="150.6 100.4;1 250;150.6 100.4"
+            />
+          </circle>
+        </svg>
+      </div>
+    )
   }
 
   if (error) {
