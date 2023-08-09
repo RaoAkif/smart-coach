@@ -275,7 +275,7 @@ const Teams = () => {
 
   return (
     <div>
-      <div className='flex justify-between'>
+      <div className='flex justify-between items-center relative top-5 left-10'>
         <p>Hello Fields</p>
         <button
           className='flex items-center justify-center bg-blue-700 text-white px-2 py-1 rounded-md'
