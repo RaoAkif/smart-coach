@@ -37,6 +37,7 @@ const DashHeader = ({ currentPage }) => {
           <div className="p-2">
             <h3>Adrian</h3>
           </div>
+          <img src="/assets/icons/DownIcon.png" width="12px" height="12px" alt="down icon" className="mr-2" />
         </div>
       </div>
       <EventModal openEventModal={openEventModal} setOpenEventModal={setOpenEventModal}/>

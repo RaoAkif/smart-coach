@@ -316,7 +316,10 @@ const Teams = () => {
               style={{ borderBottom: "1px solid #e5e7eb", background: "#f7f7f8" }}
             >
               <tr>
-                <th className='w-1/6 text-left pl-4 pb-2 font-medium'>Team Name</th>
+                <th className='w-1/6 text-left pl-4 pb-2 font-medium flex items-center'>
+                  <p className="mr-4">Name</p>
+                  <img src="/assets/icons/DownArrowIcon.png" width="12px" height="12px" alt="down icon" className="mr-2" />
+                </th>
                 <th className='w-3/6 text-left pl-4 pb-2 font-medium'>Players</th>
                 <th className='w-1/6 text-left'></th>
                 <th className='w-1/6 text-left'></th>

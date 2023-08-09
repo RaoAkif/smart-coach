@@ -353,7 +353,7 @@ const Events = () => {
                     >
                       <td className='pl-4'>
                         <Link
-                          to={`/dashboard/events/`}
+                          to={`/dashboard/events/${event.id}`}
                           className='text-black font-medium'
                         >
                           {event.name}
