@@ -3,7 +3,11 @@ import Heading from '../Heading';
 import EventModal from '../../features/events/EventModal';
 import { useState } from "react";
 
-const DashHeader = ({ currentPage }) => {
+interface DashHeaderProps {
+  currentPage: string; // Adjust the type based on your actual usage
+}
+
+const DashHeader: React.FC<DashHeaderProps> = ({ currentPage }) => {
   const [openEventModal, setOpenEventModal] = useState(false);
   
   let headingText = "Home"; // Default text
