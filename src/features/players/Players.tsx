@@ -52,8 +52,8 @@ const Players = () => {
       email: "mbappe@example.com",
     },
     {
-      name: "Kevin De Bruyne",
-      username: "debruyne17",
+      name: "Kevin Bruyne",
+      username: "debruyne",
       position: "Midfielder",
       email: "debruyne@example.com",
     },
@@ -64,8 +64,8 @@ const Players = () => {
       email: "ramos@example.com",
     },
     {
-      name: "Robert Lewandowski",
-      username: "lewandowski9",
+      name: "Robert Lewa",
+      username: "lewand",
       position: "Forward",
       email: "lewandowski@example.com",
     },
