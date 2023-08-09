@@ -19,6 +19,9 @@ const LoginForm = () => {
         .unwrap()
         .then((response) => {
           const accessToken = response.accessToken;
+          const userId = response.id;
+
+          console.log(userId)
           // Save the access token in LocalStorage
           localStorage.setItem("accessToken", accessToken);
           // Redirect or perform other actions
