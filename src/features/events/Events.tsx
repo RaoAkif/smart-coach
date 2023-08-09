@@ -164,11 +164,11 @@ const Events = () => {
           onClick={() => openModal()}
         >
           <img
-            src='/assets/icons/WhiteAddIcon.png'
+            src='/assets/icons/ShareIcon.png'
             alt='Add Icon'
-            className='w-4 h-4 mr-1'
+            className='w-4 h-4 mr-2'
           />
-          <span>Add Event</span>
+          <span>Share Event</span>
         </button>
       </div>
       <div className='rounded-xl border border-solid border-gray-300 w-full m-10 pb-2 pt-2' style={{ background: "#F3F4F6" }}>
