@@ -2,9 +2,9 @@ const Home = () => {
   return (
     <div className="inline-block border border-[#EAECF0] rounded-[8px] p-[24px] mx-[32px] my-[16px]">
       <h2 className="text-[36px] font-semibold">
-        Your next event starts in <span className="text-[#6941C6]">3 days</span>
+        Your next event starts in <span className="text-blue-700">3 days</span>
       </h2>
-      <p className="text-[#6941C6] font-semibold">See all events</p>
+      <p className="text-blue-600 font-semibold">See all events</p>
       <div className="mt-[32px] px-[16px] py-[18px] bg-[#F9FAFB] rounded-[8px]">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
