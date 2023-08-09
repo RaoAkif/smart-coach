@@ -25,93 +25,763 @@ const Teams = () => {
       id: 1,
       name: "Karachi Lions",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
     {
       id: 2,
       name: "Lahore Tigers",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
     {
       id: 3,
       name: "Islamabad Eagles",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
     {
       id: 4,
       name: "Rawalpindi Panthers",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
     {
       id: 5,
       name: "Faisalabad Bears",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
     {
       id: 6,
       name: "Multan Wolves",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
     {
       id: 7,
       name: "Peshawar Falcons",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
     {
       id: 8,
       name: "Quetta Hawks",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
     {
       id: 9,
       name: "Gujranwala Cougars",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
     {
       id: 10,
       name: "Sialkot Wildcats",
       players: [
-        { id: 101, name: "Neymar Jr.", username: "neymar", email: "neymar@example.com", number: "10" },
-        { id: 102, name: "Cristiano Ronaldo", username: "ronaldo", email: "ronaldo@example.com", number: "7" },
-        { id: 103, name: "Virgil van Dijk", username: "vandijk", email: "vandijk@example.com", number: "4" },
+        {
+          id: 101,
+          name: "Neymar Jr.",
+          username: "neymar",
+          email: "neymar@example.com",
+          number: "10",
+        },
+        {
+          id: 102,
+          name: "Cristiano Ronaldo",
+          username: "ronaldo",
+          email: "ronaldo@example.com",
+          number: "7",
+        },
+        {
+          id: 103,
+          name: "Virgil van Dijk",
+          username: "vandijk",
+          email: "vandijk@example.com",
+          number: "4",
+        },
+        {
+          id: 104,
+          name: "Lionel Messi",
+          username: "messi",
+          email: "messi@example.com",
+          number: "10",
+        },
+        {
+          id: 105,
+          name: "Kevin De Bruyne",
+          username: "debruyne",
+          email: "debruyne@example.com",
+          number: "17",
+        },
+        {
+          id: 106,
+          name: "Kylian Mbappé",
+          username: "mbappe",
+          email: "mbappe@example.com",
+          number: "11",
+        },
+        {
+          id: 107,
+          name: "Sergio Ramos",
+          username: "ramos",
+          email: "ramos@example.com",
+          number: "4",
+        },
+        {
+          id: 108,
+          name: "Robert Lewandowski",
+          username: "lewandowski",
+          email: "lewandowski@example.com",
+          number: "9",
+        },
+        {
+          id: 109,
+          name: "Mohamed Salah",
+          username: "salah",
+          email: "salah@example.com",
+          number: "11",
+        },
+        {
+          id: 110,
+          name: "Andrés Iniesta",
+          username: "iniesta",
+          email: "iniesta@example.com",
+          number: "8",
+        },
       ],
     },
-  ];  
+  ];
 
   // console.log(teams);
 
@@ -236,7 +906,7 @@ const Teams = () => {
   return (
     <div>
       <div className='flex justify-between items-center relative top-5 left-10'>
-      <div className='flex items-center w-80 h-10'>
+        <div className='flex items-center w-80 h-10'>
           <input
             type='text'
             placeholder='Seach in teams'
@@ -273,14 +943,25 @@ const Teams = () => {
           <table className='w-full mt-2'>
             <thead
               className='h-11 text-gray-600'
-              style={{ borderBottom: "1px solid #e5e7eb", background: "#f7f7f8" }}
+              style={{
+                borderBottom: "1px solid #e5e7eb",
+                background: "#f7f7f8",
+              }}
             >
               <tr>
                 <th className='w-1/6 text-left pl-4 pb-2 font-medium flex items-center'>
-                  <p className="mr-4">Name</p>
-                  <img src="/assets/icons/DownArrowIcon.png" width="12px" height="12px" alt="down icon" className="mr-2" />
+                  <p className='mr-4'>Name</p>
+                  <img
+                    src='/assets/icons/DownArrowIcon.png'
+                    width='12px'
+                    height='12px'
+                    alt='down icon'
+                    className='mr-2'
+                  />
                 </th>
-                <th className='w-3/6 text-left pl-4 pb-2 font-medium'>Players</th>
+                <th className='w-3/6 text-left pl-4 pb-2 font-medium'>
+                  Players
+                </th>
                 <th className='w-1/6 text-left'></th>
                 <th className='w-1/6 text-left'></th>
               </tr>
@@ -346,43 +1027,46 @@ const Teams = () => {
                 // ))
                 <>
                   {teamsData.map((team, index) => (
-  <tr key={index} className='h-16 border-t border-gray-300 bg-white'>
-    <td className='w-2/12 text-left pl-4 font-medium text-black'>
-      {team.name}
-    </td>
-    <td className='w-7/12 text-left pl-4 text-gray-600 font-normal'>
-      {team.players.map((player, index) => (
-        <span key={index}>
-          {player.name}
-          {index !== team.players.length - 1 && ", "}
-        </span>
-      ))}
-    </td>
-    <td className='text-right'>
-      <button onClick={() => openModal(team)}>
-        <img
-          src='/assets/icons/EditIcon.png'
-          alt='Edit Icon'
-          width={17}
-          height={17}
-        />
-      </button>
-    </td>
-    <td className='text-right pr-5'>
-      <button
-        onClick={() => deleteTeamById(team.id)}
-        disabled={isDeletingTeam}
-      >
-        <img
-          src='/assets/icons/DeleteIcon.png'
-          alt='Delete Icon'
-          width={17}
-          height={17}
-        />
-      </button>
-    </td>
-  </tr>
-))}
+                    <tr
+                      key={index}
+                      className='h-16 border-t border-gray-300 bg-white'
+                    >
+                      <td className='w-2/12 text-left pl-4 font-medium text-black'>
+                        {team.name}
+                      </td>
+                      <td className='w-7/12 text-left pl-4 text-gray-600 font-normal'>
+                        {team.players.map((player, index) => (
+                          <span key={index}>
+                            {player.name}
+                            {index !== team.players.length - 1 && ", "}
+                          </span>
+                        ))}
+                      </td>
+                      <td className='text-right'>
+                        <button onClick={() => openModal(team)}>
+                          <img
+                            src='/assets/icons/EditIcon.png'
+                            alt='Edit Icon'
+                            width={17}
+                            height={17}
+                          />
+                        </button>
+                      </td>
+                      <td className='text-right pr-5'>
+                        <button
+                          onClick={() => deleteTeamById(team.id)}
+                          disabled={isDeletingTeam}
+                        >
+                          <img
+                            src='/assets/icons/DeleteIcon.png'
+                            alt='Delete Icon'
+                            width={17}
+                            height={17}
+                          />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
                 </>
               )}
             </tbody>
