@@ -3,7 +3,7 @@ import {
   useGetPlayersQuery,
   useAddPlayerMutation,
   useEditPlayerMutation,
-  useDeletePlayerMutation,
+  // useDeletePlayerMutation,
 } from "./playersApiSlice";
 // import Player from "./Player";
 
