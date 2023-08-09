@@ -276,7 +276,18 @@ const Teams = () => {
   return (
     <div>
       <div className='flex justify-between items-center relative top-5 left-10'>
-        <p>Hello Fields</p>
+      <div className='flex items-center w-80 h-10'>
+          <input
+            type='text'
+            placeholder='Seach in teams'
+            className='w-full h-full px-4 py-2 pl-10 border border-gray-300 rounded-md bg-white relative'
+          />
+          <img
+            src='/assets/icons/SearchIcon.png'
+            alt='Search Icon'
+            className='absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4'
+          />
+        </div>
         <button
           className='flex items-center justify-center bg-blue-700 text-white px-2 py-1 rounded-md'
           style={{ width: "133px", height: "40px" }}
@@ -292,7 +303,7 @@ const Teams = () => {
       </div>
       <div
         className='rounded-xl border border-solid border-gray-300 w-full m-10 pb-2 pt-2'
-        style={{ background: "#F3F4F6" }}
+        style={{ background: "#F7F7F8" }}
       >
         <div style={{ background: "#F3F4F6" }}>
           <div>
@@ -376,8 +387,8 @@ const Teams = () => {
                       key={index}
                       className='h-16 border-t border-gray-300 bg-white'
                     >
-                      <td className='w-2/12 text-left pl-4'>{team.name}</td>
-                      <td className='w-7/12 text-left pl-4'>
+                      <td className='w-2/12 text-left pl-4 font-medium text-black'>{team.name}</td>
+                      <td className='w-7/12 text-left pl-4 text-gray-600 font-normal'>
                         {team.players.map((player, index) => (
                           <span key={index}>
                             {player}

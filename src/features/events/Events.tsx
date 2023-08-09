@@ -28,6 +28,75 @@ interface Team {
 }
 
 const Events = () => {
+  const eventsData = [
+    {
+      id: 1,
+      name: "League Matches",
+      dateAndTime: "6 August 2023 10:30 am",
+      category: "Match",
+      players: "18 players",
+      location: "Gaddafi Stadium, Ferozepur Road, Lahore, Punjab",
+    },
+    {
+      id: 2,
+      name: "Friendly Matches",
+      dateAndTime: "14 August 2023 3:00 pm",
+      category: "Match",
+      players: "15 players",
+      location: "National Stadium, Liaquat Barracks, Karachi, Sindh",
+    },
+    {
+      id: 3,
+      name: "Practice Matches",
+      dateAndTime: "20 August 2023 9:00 am",
+      category: "Practice",
+      players: "14 players",
+      location: "Rawalpindi Cricket Stadium, Saidpur Road, Rawalpindi, Punjab",
+    },
+    {
+      id: 4,
+      name: "Tournaments",
+      dateAndTime: "28 August 2023 11:45 am",
+      category: "Match",
+      players: "13 players",
+      location: "Multan Cricket Stadium, Vehari Road, Multan, Punjab",
+    },
+    {
+      id: 5,
+      name: "Cup Matches",
+      dateAndTime: "5 September 2023 2:30 pm",
+      category: "Match",
+      players: "12 players",
+      location: "Pindi Cricket Stadium, Murree Road, Rawalpindi, Punjab",
+    },
+    {
+      id: 6,
+      name: "Charity Matches",
+      dateAndTime: "15 September 2023 6:15 pm",
+      category: "Match",
+      players: "11 players",
+      location: "Iqbal Stadium, Stadium Road, Faisalabad, Punjab",
+    },
+    {
+      id: 7,
+      name: "Scrimmages",
+      dateAndTime: "22 September 2023 8:45 am",
+      category: "Match",
+      players: "8 players",
+      location:
+        "Arbab Niaz Stadium, Circular Road, Peshawar, Khyber Pakhtunkhwa",
+    },
+    {
+      id: 8,
+      name: "Training Camps",
+      dateAndTime: "30 September 2023 1:30 pm",
+      category: "Practice",
+      players: "16 players",
+      location:
+        "Shaheed Mohtarma Benazir Bhutto International Cricket Stadium, Murtaza Shaheed Road, Garhi Khuda Bakhsh, Sindh",
+    },
+  ];
+
   const { data: events, isLoading, error } = useGetEventsQuery({});
   const [addEvent] = useAddEventMutation();
   const [editEvent] = useEditEventMutation();
@@ -157,10 +226,21 @@ const Events = () => {
   return (
     <div>
       <div className='flex justify-between items-center relative top-5 left-10'>
-        <p>Hello Fields</p>
+        <div className='flex items-center w-80 h-10'>
+          <input
+            type='text'
+            placeholder='Seach in events'
+            className='w-full h-full px-4 py-2 pl-10 border border-gray-300 rounded-md bg-white relative'
+          />
+          <img
+            src='/assets/icons/SearchIcon.png'
+            alt='Search Icon'
+            className='absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4'
+          />
+        </div>
         <button
           className='flex items-center justify-center bg-blue-700 text-white px-2 py-1 rounded-md'
-          style={{ width: "133px", height: "40px" }}
+          style={{ width: "140px", height: "40px" }}
           onClick={() => openModal()}
         >
           <img
@@ -168,10 +248,13 @@ const Events = () => {
             alt='Add Icon'
             className='w-4 h-4 mr-2'
           />
-          <span>Share Event</span>
+          <span>Share Events</span>
         </button>
       </div>
-      <div className='rounded-xl border border-solid border-gray-300 w-full m-10 pb-2 pt-2' style={{ background: "#F3F4F6" }}>
+      <div
+        className='rounded-xl border border-solid border-gray-300 w-full m-10 pb-2 pt-2'
+        style={{ background: "#F7F7F8" }}
+      >
         <div>
           <div>
             <div className='flex items-center gap-2 ml-auto'></div>
@@ -179,14 +262,19 @@ const Events = () => {
           <table className='w-full'>
             <thead
               className='h-11 text-gray-600'
-              style={{ borderBottom: "1px solid #e5e7eb", background: "#f7f7f8" }}
+              style={{
+                borderBottom: "1px solid #e5e7eb",
+                background: "#f7f7f8",
+              }}
             >
               <tr>
-                <th className='w-1/6 text-left pl-4 font-medium'>Title</th>
-                <th className='w-1/6 text-left pl-4 font-medium'>Date</th>
-                <th className='w-1/6 text-left pl-4 font-medium'>Start Time</th>
-                <th className='w-1/6 text-left pl-4 font-medium'>Location</th>
-                <th className='w-1/6 text-left pl-4 font-medium'>Details</th>
+                <th className='w-1/12 text-left pl-4 font-medium'>Title</th>
+                <th className='w-2/12 text-left pl-4 font-medium'>
+                  Date & Time
+                </th>
+                <th className='w-1/12 text-left pl-4 font-medium'>Category</th>
+                <th className='w-1/12 text-left pl-4 font-medium'>Players</th>
+                <th className='w-3/12 text-left pl-4 font-medium'>Location</th>
                 <th className='w-1/12' colSpan={2}></th>{" "}
                 {/* Empty space for edit and delete columns */}
               </tr>
@@ -211,48 +299,103 @@ const Events = () => {
                   </td>
                 </tr>
               ) : (
-                events.map((event: EventProps) => (
-                  <tr
-                    key={event.id}
-                    className='h-16 border-t border-gray-300 bg-white'
-                  >
-                    <td className='pl-4'>
-                      <Link
-                        to={`/dashboard/events/${event.id}`}
-                        className='text-blue-700 underline font-bold'
-                      >
-                        {event.title}
-                      </Link>
-                    </td>
-                    <td className='pl-4'>{event.date}</td>
-                    <td className='pl-4'>{event.start_time}</td>
-                    <td className='pl-4'>{event.location}</td>
-                    <td className='pl-4'>{event.details}</td>
-                    <td className='text-right'>
-                      <button onClick={() => openModal(event)}>
-                        <img
-                          src='/assets/icons/EditIcon.png'
-                          alt='Edit Icon'
-                          width={17}
-                          height={17}
-                        />
-                      </button>
-                    </td>
-                    <td className='text-right pr-5'>
-                      <button
-                        onClick={() => deleteEventById(event.id)}
-                        disabled={isDeletingEvent}
-                      >
-                        <img
-                          src='/assets/icons/DeleteIcon.png'
-                          alt='Delete Icon'
-                          width={17}
-                          height={17}
-                        />
-                      </button>
-                    </td>
-                  </tr>
-                ))
+                // events.map((event: EventProps) => (
+                //   <tr
+                //     key={event.id}
+                //     className='h-16 border-t border-gray-300 bg-white'
+                //   >
+                //     <td className='pl-4'>
+                //       <Link
+                //         to={`/dashboard/events/${event.id}`}
+                //         className='text-black font-medium'
+                //       >
+                //         {event.title}
+                //       </Link>
+                //     </td>
+                //     <td className='pl-4 font-normal'>{event.date} - {event.start_time}</td>
+                //     <td className='pl-4 font-normal'>
+                //       <div className="flex justify-center items-center bg-blue-100 text-blue-600 rounded-2xl border border-blue-300" style={{width: "74px", height: "30px"}}>
+                //         {event.event_type.toLocaleLowerCase()}
+                //       </div>
+                //     </td>
+                //     <td className='pl-4 font-normal'>18 Players</td>
+                //     <td className='pl-4 font-normal'>2972 Westheimer Rd. Santa Ana, Illinois 85486, USA</td>
+                //     <td className='text-right'>
+                //       <button onClick={() => openModal(event)}>
+                //         <img
+                //           src='/assets/icons/EditIcon.png'
+                //           alt='Edit Icon'
+                //           width={17}
+                //           height={17}
+                //         />
+                //       </button>
+                //     </td>
+                //     <td className='text-right pr-5'>
+                //       <button
+                //         onClick={() => deleteEventById(event.id)}
+                //         disabled={isDeletingEvent}
+                //       >
+                //         <img
+                //           src='/assets/icons/DeleteIcon.png'
+                //           alt='Delete Icon'
+                //           width={17}
+                //           height={17}
+                //         />
+                //       </button>
+                //     </td>
+                //   </tr>
+                // ))
+                <>
+                  {eventsData.map((event) => (
+                    <tr
+                      key={event.id}
+                      className='h-16 border-t border-gray-300 bg-white'
+                    >
+                      <td className='pl-4'>
+                        <Link
+                          to={`/dashboard/events/`}
+                          className='text-black font-medium'
+                        >
+                          {event.name}
+                        </Link>
+                      </td>
+                      <td className='pl-4 font-normal'>{event.dateAndTime}</td>
+                      <td className='pl-4 font-normal'>
+                        <div
+                          className='flex justify-center items-center bg-blue-100 text-blue-600 rounded-2xl border border-blue-300'
+                          style={{ width: "74px", height: "30px" }}
+                        >
+                          {event.category}
+                        </div>
+                      </td>
+                      <td className='pl-4 font-normal'>{event.players}</td>
+                      <td className='pl-4 font-normal'>{event.location}</td>
+                      <td className='text-right'>
+                        <button onClick={() => openModal(event)}>
+                          <img
+                            src='/assets/icons/EditIcon.png'
+                            alt='Edit Icon'
+                            width={17}
+                            height={17}
+                          />
+                        </button>
+                      </td>
+                      <td className='text-right pr-5'>
+                        <button
+                          onClick={() => deleteEventById(event.id)}
+                          disabled={isDeletingEvent}
+                        >
+                          <img
+                            src='/assets/icons/DeleteIcon.png'
+                            alt='Delete Icon'
+                            width={17}
+                            height={17}
+                          />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </>
               )}
             </tbody>
           </table>
