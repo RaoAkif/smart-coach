@@ -149,7 +149,7 @@ const openModal = (playerId?: number) => {
           <div className="flex justify-between items-center p-4">
             <div className="flex items-center gap-4">
               <h2 className="text-lg font-bold">All Players</h2>
-              <div className="flex items-center bg-blue-100 text-blue-700 font-semibold justify-center border-2 border-blue-300 rounded-full px-2 py-1" style={{ width: '74px', height: '22px', fontSize: '12px' }}>
+              <div className="flex items-center bg-blue-100 text-blue-700 font-semibold justify-center border-2 border-blue-300 rounded-full px-2 py-1" style={{ width: '74px', height: '22px', fontSize: '12px', borderWidth: '1px' }}>
                 <span>{players.length}</span>
                 <span className="ml-1">
                   {players.length === 1 ? 'Player' : 'Players'}
