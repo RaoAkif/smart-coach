@@ -178,15 +178,15 @@ const Events = () => {
           </div>
           <table className='w-full'>
             <thead
-              className='h-11 bg-gray-100'
-              style={{ borderBottom: "1px solid #e5e7eb" }}
+              className='h-11 text-gray-600'
+              style={{ borderBottom: "1px solid #e5e7eb", background: "#f7f7f8" }}
             >
               <tr>
-                <th className='w-1/6 text-left pl-4'>Title</th>
-                <th className='w-1/6 text-left pl-4'>Date</th>
-                <th className='w-1/6 text-left pl-4'>Start Time</th>
-                <th className='w-1/6 text-left pl-4'>Location</th>
-                <th className='w-1/6 text-left pl-4'>Details</th>
+                <th className='w-1/6 text-left pl-4 font-medium'>Title</th>
+                <th className='w-1/6 text-left pl-4 font-medium'>Date</th>
+                <th className='w-1/6 text-left pl-4 font-medium'>Start Time</th>
+                <th className='w-1/6 text-left pl-4 font-medium'>Location</th>
+                <th className='w-1/6 text-left pl-4 font-medium'>Details</th>
                 <th className='w-1/12' colSpan={2}></th>{" "}
                 {/* Empty space for edit and delete columns */}
               </tr>

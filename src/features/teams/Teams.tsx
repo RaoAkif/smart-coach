@@ -301,12 +301,12 @@ const Teams = () => {
 
           <table className='w-full mt-2'>
             <thead
-              className='h-11 bg-gray-100'
-              style={{ borderBottom: "1px solid #e5e7eb" }}
+              className='h-11 text-gray-600'
+              style={{ borderBottom: "1px solid #e5e7eb", background: "#f7f7f8" }}
             >
               <tr>
-                <th className='w-1/6 text-left pl-4 pb-2'>Team Name</th>
-                <th className='w-3/6 text-left pl-4 pb-2'>Players</th>
+                <th className='w-1/6 text-left pl-4 pb-2 font-medium'>Team Name</th>
+                <th className='w-3/6 text-left pl-4 pb-2 font-medium'>Players</th>
                 <th className='w-1/6 text-left'></th>
                 <th className='w-1/6 text-left'></th>
               </tr>
