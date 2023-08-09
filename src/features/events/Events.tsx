@@ -32,7 +32,8 @@ const Events = () => {
     {
       id: 1,
       name: "League Matches",
-      dateAndTime: "6 August 2023 10:30 am",
+      date: "6 August 2023",
+      time: "10:30 am",
       category: "Match",
       players: "18 players",
       location: "Gaddafi Stadium, Ferozepur Road, Lahore, Punjab",
@@ -40,7 +41,8 @@ const Events = () => {
     {
       id: 2,
       name: "Friendly Matches",
-      dateAndTime: "14 August 2023 3:00 pm",
+      date: "14 August 2023",
+      time: "3:00 pm",
       category: "Match",
       players: "15 players",
       location: "National Stadium, Liaquat Barracks, Karachi, Sindh",
@@ -48,7 +50,8 @@ const Events = () => {
     {
       id: 3,
       name: "Practice Matches",
-      dateAndTime: "20 August 2023 9:00 am",
+      date: "20 August 2023",
+      time: "9:00 am",
       category: "Practice",
       players: "14 players",
       location: "Rawalpindi Cricket Stadium, Saidpur Road, Rawalpindi, Punjab",
@@ -56,7 +59,8 @@ const Events = () => {
     {
       id: 4,
       name: "Tournaments",
-      dateAndTime: "28 August 2023 11:45 am",
+      date: "28 August 2023",
+      time: "11:45 am",
       category: "Match",
       players: "13 players",
       location: "Multan Cricket Stadium, Vehari Road, Multan, Punjab",
@@ -64,7 +68,8 @@ const Events = () => {
     {
       id: 5,
       name: "Cup Matches",
-      dateAndTime: "5 September 2023 2:30 pm",
+      date: "5 September 2023",
+      time: "2:30 pm",
       category: "Match",
       players: "12 players",
       location: "Pindi Cricket Stadium, Murree Road, Rawalpindi, Punjab",
@@ -72,7 +77,8 @@ const Events = () => {
     {
       id: 6,
       name: "Charity Matches",
-      dateAndTime: "15 September 2023 6:15 pm",
+      date: "15 September 2023",
+      time: "6:15 pm",
       category: "Match",
       players: "11 players",
       location: "Iqbal Stadium, Stadium Road, Faisalabad, Punjab",
@@ -80,22 +86,22 @@ const Events = () => {
     {
       id: 7,
       name: "Scrimmages",
-      dateAndTime: "22 September 2023 8:45 am",
+      date: "22 September 2023",
+      time: "8:45 am",
       category: "Match",
       players: "8 players",
-      location:
-        "Arbab Niaz Stadium, Circular Road, Peshawar, Khyber Pakhtunkhwa",
+      location: "Arbab Niaz Stadium, Circular Road, Peshawar, Khyber Pakhtunkhwa",
     },
     {
       id: 8,
       name: "Training Camps",
-      dateAndTime: "30 September 2023 1:30 pm",
+      date: "30 September 2023",
+      time: "1:30 pm",
       category: "Practice",
       players: "16 players",
-      location:
-        "Shaheed Mohtarma Benazir Bhutto International Cricket Stadium, Murtaza Shaheed Road, Garhi Khuda Bakhsh, Sindh",
+      location: "Shaheed Mohtarma Benazir Bhutto International Cricket Stadium, Murtaza Shaheed Road, Garhi Khuda Bakhsh, Sindh",
     },
-  ];
+  ]  
 
   const { data: events, isLoading, error } = useGetEventsQuery({});
   const [addEvent] = useAddEventMutation();
@@ -359,7 +365,7 @@ const Events = () => {
                           {event.name}
                         </Link>
                       </td>
-                      <td className='pl-4 font-normal'>{event.dateAndTime}</td>
+                      <td className='pl-4 font-normal'>{`${event.date} ${event.time}`}</td>
                       <td className='pl-4 font-normal'>
                         <div
                           className='flex justify-center items-center bg-blue-100 text-blue-600 rounded-2xl border border-blue-300'
