@@ -5,7 +5,7 @@ import {
   useEditPlayerMutation,
   useDeletePlayerMutation,
 } from "./playersApiSlice";
-import Player from "./Player";
+// import Player from "./Player";
 
 interface PlayerProps {
   id: number;
@@ -92,8 +92,8 @@ const Players = () => {
   const { data: players, isLoading, error } = useGetPlayersQuery({});
   const [addPlayer] = useAddPlayerMutation();
   const [editPlayer] = useEditPlayerMutation();
-  const [deletePlayer, { isLoading: isDeletingPlayer }] =
-    useDeletePlayerMutation();
+  // const [deletePlayer, { isLoading: isDeletingPlayer }] =
+  //   useDeletePlayerMutation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddingPlayer, setIsAddingPlayer] = useState(false); // New state variable
   const [editingPlayerId, setEditingPlayerId] = useState<number | null>(null);
