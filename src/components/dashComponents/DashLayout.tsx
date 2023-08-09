@@ -14,12 +14,12 @@ const DashLayout = () => {
   }, [navigate]);
   
   return (
-    <div className="mx-auto">
+    <div>
       <div className="flex">
-        <aside className="w-2/12 pt-5">
+        <aside className="pt-9 pl-5" style={{width: '15%'}}>
           <DashSidebar />
         </aside>
-        <main className="w-full" style={{borderLeft: "1px solid #e5e7eb"}}>
+        <main style={{borderLeft: "1px solid #e5e7eb", width: '80%'}}>
           <DashHeader />
           <Outlet />
         </main>
