@@ -7,6 +7,9 @@ _**This Project consists of three Repositories:**_ <br>
 - **Smart Coach Frontend**. It can be accessed [HERE](https://github.com/RaoAkif/smart-coach) <br>
 - **Smart Player Frontend**. It can be accessed [HERE](https://github.com/RaoAkif/smart-player) <br>
 
+## Application Cover
+![1687882302127](https://github.com/RaoAkif/smart-coach/assets/61361037/3d73df78-5662-4c7f-b87c-ec8b7eaa71cd)
+
 ## Deployments
 The Smart Coach Backend and API, Smart Coach and Smart Player applications are deployed at the following links:
 ### Smart Coach API
