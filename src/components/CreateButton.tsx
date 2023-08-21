@@ -30,7 +30,7 @@ const CreateButton = ({ text, onClick }: CreateButtonProps) => {
           width={12}
           height={12}
         />
-      <span className='ml-2 font-bold text-sm text-blue-700 hover:text-white'>
+      <span className={`ml-2 font-bold text-sm ${isHovered ? 'text-white' : 'text-blue-700'}`}>
         {text}
       </span>
     </div>
