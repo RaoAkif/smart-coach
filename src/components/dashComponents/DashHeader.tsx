@@ -26,7 +26,7 @@ const DashHeader: React.FC<DashHeaderProps> = ({ currentPage }) => {
         <Heading text={headingText} />
       </div>
       <div className="flex items-center pr-12">
-        <div className="mr-6">
+        <div className="mr-6 cursor-pointer">
           <CreateButton text="Create event" onClick={() => setOpenEventModal(true)}/>
         </div>
         <div className="flex items-center rounded-md" style={{border: "1px solid #e5e7eb"}}>

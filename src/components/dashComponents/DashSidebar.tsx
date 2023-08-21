@@ -17,7 +17,6 @@ const DashSidebar = () => {
                   ? 'active my-2 py-2 px-3 mr-4 rounded-lg bg-slate-100'
                   : 'my-2 py-2 px-3 mr-4 rounded-lg hover:bg-slate-200'
               }
-              // onClick={() => handleItemClick('/dashboard')}
             >
               <div className="flex items-center">
                 <img
@@ -41,7 +40,6 @@ const DashSidebar = () => {
                   ? 'active my-2 py-2 px-3 mr-4 rounded-lg bg-slate-100'
                   : 'my-2 py-2 px-3 mr-4 rounded-lg hover:bg-slate-200'
               }
-              // onClick={() => handleItemClick('/dashboard/players')}
             >
               <div className="flex items-center">
                 <img
@@ -65,7 +63,6 @@ const DashSidebar = () => {
                   ? 'active my-2 py-2 px-3 mr-4 rounded-lg bg-slate-100'
                   : 'my-2 py-2 px-3 mr-4 rounded-lg hover:bg-slate-200'
               }
-              // onClick={() => handleItemClick('/dashboard/teams')}
             >
               <div className="flex items-center">
                 <img
@@ -89,7 +86,6 @@ const DashSidebar = () => {
                   ? 'active my-2 py-2 px-3 mr-4 rounded-lg bg-slate-100'
                   : 'my-2 py-2 px-3 mr-4 rounded-lg hover:bg-slate-200'
               }
-              // onClick={() => handleItemClick('/dashboard/events')}
             >
               <div className="flex justify-between">
                 <div className="flex items-center">
