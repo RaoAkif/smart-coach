@@ -1,20 +1,36 @@
+import React, { useState } from "react";
+
 type CreateButtonProps = {
   text: string;
   onClick: () => void;
 };
 
 const CreateButton = ({ text, onClick }: CreateButtonProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <div className="flex items-center py-2 px-4 border-2 border-purple-800 rounded-md" onClick={onClick}>
-      <div className="">
+    <div
+      style={{ borderWidth: "1px" }}
+      className='flex items-center py-2 px-4 border-blue-700 rounded-lg hover:bg-blue-700'
+      onClick={onClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
         <img
-          src="/assets/icons/AddIcon.png"
-          alt="Add Icon"
+          src={`/assets/icons/AddIcon_${isHovered ? 'white' : 'blue'}.svg`}
+          alt='Add Icon'
           width={12}
           height={12}
         />
-      </div>
-      <span className="ml-2 font-bold text-sm text-purple-800 hover:underline">
+      <span className={`ml-2 font-bold text-sm ${isHovered ? 'text-white' : 'text-blue-700'}`}>
         {text}
       </span>
     </div>

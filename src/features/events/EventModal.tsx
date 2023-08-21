@@ -78,8 +78,6 @@ const EventModal = ({openEventModal, setOpenEventModal}: {openEventModal: boolea
     };
 
     useEffect(() => {
-      console.log(openEventModal);
-
         if(openEventModal)
             openModal();
     }, [openEventModal])
