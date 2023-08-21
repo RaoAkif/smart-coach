@@ -899,9 +899,9 @@ const Teams = () => {
     );
   }
 
-  if (teamsError || playersError) {
-    return <div>Error</div>;
-  }
+  // if (teamsError || playersError) {
+  //   return <div>Error</div>;
+  // }
 
   return (
     <div>

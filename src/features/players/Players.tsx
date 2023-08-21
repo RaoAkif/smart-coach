@@ -227,9 +227,9 @@ const Players = () => {
     );
   }
 
-  if (error) {
-    return <div>An error occurred</div>;
-  }
+  // if (error) {
+  //   return <div>An error occurred</div>;
+  // }
 
   return (
     <div className='bg-white rounded-xl border border-solid border-gray-300 w-full m-10 pb-2'>
@@ -298,7 +298,7 @@ const Players = () => {
             </tr>
           </thead>
           <tbody>
-            {players.length === 0 ? (
+            {playersData.length === 0 ? (
               <tr>
                 <td colSpan={6}>
                   <button
