@@ -3,6 +3,7 @@ import Logo from '../Logo';
 
 const DashSidebar = () => {
   const pathName = window.location.pathname;
+
   return (
     <nav className="h-screen flex flex-col">
       <Logo />
@@ -13,9 +14,10 @@ const DashSidebar = () => {
             <li
               className={
                 pathName === '/dashboard'
-                  ? 'active my-2 py-2 px-3'
-                  : 'my-2 py-2 px-3'
+                  ? 'active my-2 py-2 px-3 mr-4 rounded-lg bg-slate-100'
+                  : 'my-2 py-2 px-3 mr-4 rounded-lg hover:bg-slate-200'
               }
+              // onClick={() => handleItemClick('/dashboard')}
             >
               <div className="flex items-center">
                 <img
@@ -24,7 +26,7 @@ const DashSidebar = () => {
                   width={18}
                   height={18}
                 />
-                <span className="ml-2 font-semibold text-sm hover:underline">
+                <span className="ml-2 font-semibold text-sm">
                   Home
                 </span>
               </div>
@@ -36,9 +38,10 @@ const DashSidebar = () => {
             <li
               className={
                 pathName === '/dashboard/players'
-                  ? 'active my-2 py-2 px-3'
-                  : 'my-2 py-2 px-3'
+                  ? 'active my-2 py-2 px-3 mr-4 rounded-lg bg-slate-100'
+                  : 'my-2 py-2 px-3 mr-4 rounded-lg hover:bg-slate-200'
               }
+              // onClick={() => handleItemClick('/dashboard/players')}
             >
               <div className="flex items-center">
                 <img
@@ -47,7 +50,7 @@ const DashSidebar = () => {
                   width={22}
                   height={22}
                 />
-                <span className="ml-2 font-semibold text-sm hover:underline">
+                <span className="ml-2 font-semibold text-sm">
                   Players
                 </span>
               </div>
@@ -59,9 +62,10 @@ const DashSidebar = () => {
             <li
               className={
                 pathName === '/dashboard/teams'
-                  ? 'active my-2 py-2 px-3'
-                  : 'my-2 py-2 px-3'
+                  ? 'active my-2 py-2 px-3 mr-4 rounded-lg bg-slate-100'
+                  : 'my-2 py-2 px-3 mr-4 rounded-lg hover:bg-slate-200'
               }
+              // onClick={() => handleItemClick('/dashboard/teams')}
             >
               <div className="flex items-center">
                 <img
@@ -70,7 +74,7 @@ const DashSidebar = () => {
                   width={18}
                   height={18}
                 />
-                <span className="ml-2 font-semibold text-sm hover:underline">
+                <span className="ml-2 font-semibold text-sm">
                   My Teams
                 </span>
               </div>
@@ -82,9 +86,10 @@ const DashSidebar = () => {
             <li
               className={
                 pathName === '/dashboard/events'
-                  ? 'active my-2 py-2 px-3'
-                  : 'my-2 py-2 px-3'
+                  ? 'active my-2 py-2 px-3 mr-4 rounded-lg bg-slate-100'
+                  : 'my-2 py-2 px-3 mr-4 rounded-lg hover:bg-slate-200'
               }
+              // onClick={() => handleItemClick('/dashboard/events')}
             >
               <div className="flex justify-between">
                 <div className="flex items-center">
@@ -94,7 +99,7 @@ const DashSidebar = () => {
                     width={18}
                     height={18}
                   />
-                  <span className="ml-2 font-semibold text-sm hover:underline">
+                  <span className="ml-2 font-semibold text-sm">
                     Events
                   </span>
                 </div>
