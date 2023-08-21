@@ -788,12 +788,12 @@ const Teams = () => {
   const {
     data: teams,
     isLoading: isTeamsLoading,
-    error: teamsError,
+    // error: teamsError,
   } = useGetTeamsQuery({});
   const {
     data: players,
     isLoading: isPlayersLoading,
-    error: playersError,
+    // error: playersError,
   } = useGetPlayersQuery({});
 
   const [addTeam] = useAddTeamMutation();

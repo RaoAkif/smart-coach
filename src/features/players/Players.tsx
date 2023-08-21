@@ -89,7 +89,9 @@ const Players = () => {
     },
   ];
 
-  const { data: players, isLoading, error } = useGetPlayersQuery({});
+  const { data: players, isLoading,
+    // error
+  } = useGetPlayersQuery({});
   const [addPlayer] = useAddPlayerMutation();
   const [editPlayer] = useEditPlayerMutation();
   // const [deletePlayer, { isLoading: isDeletingPlayer }] =
