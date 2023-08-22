@@ -281,7 +281,7 @@ const Events = () => {
                 <th className='w-1/12 text-left pl-4 font-medium'>Category</th>
                 <th className='w-1/12 text-left pl-4 font-medium'>Players</th>
                 <th className='w-3/12 text-left pl-4 font-medium'>Location</th>
-                <th className='w-1/12' colSpan={2}></th>{" "}
+                <th className='w-1/12' colSpan={2}></th>
                 {/* Empty space for edit and delete columns */}
               </tr>
             </thead>
@@ -411,7 +411,7 @@ const Events = () => {
           <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
             <div
               className='bg-white rounded-lg p-6 overflow-y-auto'
-              style={{ width: "544px", height: "480px" }}
+              style={{ width: '60%', height: "70%" }}
             >
               <h2 className='text-xl font-bold mb-6 text-center'>
                 {isEditing ? "Edit Event Details" : "Add Event Details"}

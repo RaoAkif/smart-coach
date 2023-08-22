@@ -1076,7 +1076,7 @@ const Teams = () => {
           <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
             <div
               className='bg-white rounded-lg p-6 overflow-y-auto'
-              style={{ width: "544px", height: "480px" }}
+              style={{ width: '60%', height: "70%" }}
             >
               <span
                 className='close'

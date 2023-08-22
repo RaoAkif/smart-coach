@@ -6,12 +6,17 @@ const initialState = {
   error: null,
 };
 
-export const playersSlice = createSlice({
+const playersSlice = createSlice({
   name: 'players',
   initialState,
   reducers: {
     setPlayers: (state, action) => {
-      state.players = action.payload;
+      state.players = action.payload; // Avoid this direct assignment
+      // Instead, return a new state object with the updated players array:
+      return {
+        ...state,
+        players: action.payload,
+      };
     },
   },
 });

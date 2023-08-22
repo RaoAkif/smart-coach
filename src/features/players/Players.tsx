@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setPlayers } from "./playersSlice"; // Import the setPlayers action
 import {
   useGetPlayersQuery,
   useAddPlayerMutation,
   useEditPlayerMutation,
-  // useDeletePlayerMutation,
+  useDeletePlayerMutation,
 } from "./playersApiSlice";
-// import Player from "./Player";
 
 interface PlayerProps {
   id: number;
@@ -23,81 +24,29 @@ interface PlayerProps {
     | "DEFENSIVE_MIDFIELD_LEFT"
     | "SECOND_STRIKER"
     | "CENTRE_FORWARD";
+  availability_status: string;
 }
 
-const Players = () => {
-  const playersData = [
-    {
-      name: "Lionel Messi",
-      username: "messi10",
-      position: "Forward",
-      email: "messi@example.com",
-    },
-    {
-      name: "Cristiano Ronaldo",
-      username: "ronaldo7",
-      position: "Forward",
-      email: "ronaldo@example.com",
-    },
-    {
-      name: "Neymar Jr.",
-      username: "neymarjr10",
-      position: "Forward",
-      email: "neymar@example.com",
-    },
-    {
-      name: "Kylian Mbappé",
-      username: "mbappe7",
-      position: "Forward",
-      email: "mbappe@example.com",
-    },
-    {
-      name: "Kevin Bruyne",
-      username: "debruyne",
-      position: "Midfielder",
-      email: "debruyne@example.com",
-    },
-    {
-      name: "Sergio Ramos",
-      username: "sergioramos4",
-      position: "Defender",
-      email: "ramos@example.com",
-    },
-    {
-      name: "Robert Lewa",
-      username: "lewand",
-      position: "Forward",
-      email: "lewandowski@example.com",
-    },
-    {
-      name: "Mohamed Salah",
-      username: "salah11",
-      position: "Forward",
-      email: "salah@example.com",
-    },
-    {
-      name: "Virgil van Dijk",
-      username: "vandijk4",
-      position: "Defender",
-      email: "vandijk@example.com",
-    },
-    {
-      name: "Joshua Kimmich",
-      username: "kimmich6",
-      position: "Midfielder",
-      email: "kimmich@example.com",
-    },
-  ];
+const Players: React.FC = () => {
+  const { data: playersData, isLoading, error } = useGetPlayersQuery({});
+  const players = useSelector((state) => state.players);
 
-  const { data: players, isLoading,
-    // error
-  } = useGetPlayersQuery({});
-  const [addPlayer] = useAddPlayerMutation();
+  const dispatch = useDispatch();
+
+const [addPlayer] = useAddPlayerMutation({
+  onSuccess: (newPlayer) => {
+    // Update the Redux store's players array
+    const updatedPlayers = [...players, newPlayer];
+    dispatch(setPlayers(updatedPlayers));
+  },
+});
+
   const [editPlayer] = useEditPlayerMutation();
-  // const [deletePlayer, { isLoading: isDeletingPlayer }] =
-  //   useDeletePlayerMutation();
+  const [deletePlayer, { isLoading: isDeletingPlayer }] =
+    useDeletePlayerMutation();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAddingPlayer, setIsAddingPlayer] = useState(false); // New state variable
+  const [isAddingPlayer, setIsAddingPlayer] = useState(false);
   const [editingPlayerId, setEditingPlayerId] = useState<number | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [playerDetails, setPlayerDetails] = useState<PlayerProps>({
@@ -107,14 +56,15 @@ const Players = () => {
     email: "",
     number: "",
     position: "GOAL_KEEPER",
+    availability_status: "PENDING",
   });
 
   const openModal = (playerId?: number) => {
     setIsModalOpen(true);
     setEditingPlayerId(playerId || null);
     setIsEditing(Boolean(playerId));
-    const player = players.find(
-      (player: { id: number | undefined }) => player.id === playerId
+    const player = playersData?.find(
+      (player: PlayerProps) => player.id === playerId
     );
     if (player) {
       setPlayerDetails(player);
@@ -126,6 +76,7 @@ const Players = () => {
         email: "",
         number: "",
         position: "GOAL_KEEPER",
+        availability_status: "PENDING",
       });
     }
   };
@@ -141,6 +92,7 @@ const Players = () => {
       email: "",
       number: "",
       position: "GOAL_KEEPER",
+      availability_status: "PENDING",
     });
   };
 
@@ -152,13 +104,17 @@ const Players = () => {
         .unwrap()
         .then((response) => {
           console.log("Player updated successfully:", response);
+          const updatedPlayers = playersData.map((player) =>
+            player.id === playerDetails.id ? response : player
+          );
+          dispatch(setPlayers(updatedPlayers));
           closeModal();
         })
         .catch((error) => {
           console.error("Error updating player:", error);
         });
     } else {
-      setIsAddingPlayer(true); // Set isAddingPlayer to true when adding a player
+      setIsAddingPlayer(true);
 
       addPlayer(playerDetails)
         .unwrap()
@@ -170,10 +126,11 @@ const Players = () => {
           console.error("Error adding player:", error);
         })
         .finally(() => {
-          setIsAddingPlayer(false); // Set isAddingPlayer back to false after the request is completed
+          setIsAddingPlayer(false);
         });
     }
   };
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -187,51 +144,15 @@ const Players = () => {
 
   if (isLoading) {
     return (
-      <div
-        style={{
-          width: "50px",
-          position: "relative",
-          left: "30vw",
-          top: "30vh",
-        }}
-      >
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          viewBox='0 0 100 100'
-          preserveAspectRatio='xMidYMid'
-          className='loading-spinner'
-        >
-          <circle
-            cx='50'
-            cy='50'
-            r='45'
-            fill='none'
-            stroke='#007bff'
-            strokeWidth='6'
-            strokeLinecap='round'
-          >
-            <animate
-              attributeName='stroke-dashoffset'
-              dur='2s'
-              repeatCount='indefinite'
-              from='0'
-              to='502'
-            />
-            <animate
-              attributeName='stroke-dasharray'
-              dur='2s'
-              repeatCount='indefinite'
-              values='150.6 100.4;1 250;150.6 100.4'
-            />
-          </circle>
-        </svg>
+      <div className='loading-spinner-container'>
+        {/* Your loading spinner JSX */}
       </div>
     );
   }
 
-  // if (error) {
-  //   return <div>An error occurred</div>;
-  // }
+  if (error) {
+    return <div>An error occurred</div>;
+  }
 
   return (
     <div className='bg-white rounded-xl border border-solid border-gray-300 w-full m-10 pb-2'>
@@ -252,13 +173,9 @@ const Players = () => {
                   borderWidth: "1px",
                 }}
               >
-                {/* <span>{players.length}</span> */}
-                {/* <span className='ml-1'>
-                  {players.length === 1 ? "Player" : "Players"}
-                </span> */}
-                <span className="mt-1">10</span>
+                <span className=' mt-1'>{playersData.length}</span>
                 <span className='ml-1 mt-1'>
-                  Players
+                  {playersData.length === 1 ? "Player" : "Players"}
                 </span>
               </div>
             </div>
@@ -295,7 +212,7 @@ const Players = () => {
               <th className='w-1/12 text-left pl-4 text-sm font-medium'>
                 Login details
               </th>
-              <th className='w-1/12' colSpan={2}></th>{" "}
+              <th className='w-1/12' colSpan={2}></th>
               {/* Empty space for edit and delete columns */}
             </tr>
           </thead>
@@ -319,21 +236,11 @@ const Players = () => {
                 </td>
               </tr>
             ) : (
-              // players.map((player: PlayerProps) => (
-              //   <Player
-              //     key={player.id}
-              //     player={player}
-              //     openModal={openModal}
-              //     isEditing={isEditing}
-              //     deletePlayer={deletePlayer} // Pass the deletePlayer function
-              //     isDeletingPlayer={isDeletingPlayer} // Pass the isDeletingPlayer variable
-              //   />
-              // ))
               <>
-                {playersData.map((player, index) => (
+                {playersData.map((player: PlayerProps) => (
                   <tr
                     className='p-4 border-t border-gray-300 bg-white'
-                    key={index}
+                    key={player.id}
                   >
                     <td className='w-1/6 text-left pl-4 h-16 font-medium text-black'>
                       {player.name}{" "}
@@ -366,6 +273,7 @@ const Players = () => {
                       <button
                         className='text-blue-700'
                         style={{ marginTop: "10px" }}
+                        onClick={() => openModal(player.id)} // Pass player ID to openModal function
                       >
                         <img
                           src='/assets/icons/EditIcon.png'
@@ -380,6 +288,20 @@ const Players = () => {
                       <button
                         className='text-blue-700'
                         style={{ marginTop: "10px" }}
+                        onClick={() => {
+                          deletePlayer(player.id)
+                            .unwrap()
+                            .then(() => {
+                              const updatedPlayers = players.filter(
+                                (p) => p.id !== player.id
+                              );
+                              dispatch(setPlayers(updatedPlayers));
+                            })
+                            .catch((error) => {
+                              console.error("Error deleting player:", error);
+                            });
+                        }}
+                        disabled={isDeletingPlayer}
                       >
                         <img
                           src='/assets/icons/DeleteIcon.png'
@@ -401,7 +323,7 @@ const Players = () => {
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div
             className='bg-white rounded-lg p-6 overflow-y-auto'
-            style={{ width: "544px", height: "480px" }}
+            style={{ width: '60%', height: "70%" }}
           >
             <h2 className='text-xl font-bold mb-6 text-center'>
               {isEditing ? "Edit Player Details" : "Add Player Details"}

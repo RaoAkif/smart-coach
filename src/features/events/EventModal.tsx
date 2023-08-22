@@ -87,7 +87,7 @@ const EventModal = ({openEventModal, setOpenEventModal}: {openEventModal: boolea
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
         <div
         className='bg-white rounded-lg p-6 overflow-y-auto'
-        style={{ width: "544px", height: "480px" }}
+        style={{ width: '60%', height: "70%" }}
         >
         <h2 className='text-xl font-bold mb-6 text-center'>
             {isEditing ? "Edit Event Details" : "Add Event Details"}

@@ -63,16 +63,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDb2FjaEluZm8iOnsiY
 ### Create a new Player
 POST https://smart-coach-api.vercel.app/api/players
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDb2FjaEluZm8iOnsiY29hY2hJZCI6MX0sImlhdCI6MTY4NjgxMTM3OCwiZXhwIjoxNjg3NDE2MTc4fQ.8erhupn7NVfkJtwzd26P87ZfopyA1jtsgviCSrbTjrw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDb2FjaEluZm8iOnsiY29hY2hJZCI6MSwidXNlcm5hbWUiOiJjb2FjaDAxIn0sImlhdCI6MTY5MjY5MjU2MSwiZXhwIjoxNjkzMjk3MzYxfQ.e_T_69pfGo1xIR3GdLcGyfWAb3h_FoL7chB1EtEm3oE
 
-# {
-#   "name": "John Doe",
-#   "username": "johndoe",
-#   "email": "johndoe@gmail.com",
-#   "number": "+923330508717",
-#   "position": "GOAL_KEEPER",
-#   "availability_status": "PENDING"
-# }
+{
+  "name": "John Doe1",
+  "username": "johndoe1",
+  "email": "johndoe1@gmail.com",
+  "number": "+923330508717",
+  "position": "GOAL_KEEPER",
+  "availability_status": "PENDING"
+}
 
 {
   "name": "Jenny Doe",
@@ -86,7 +86,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDb2FjaEluZm8iOnsiY
 
 ### Get all players
 GET https://smart-coach-api.vercel.app/api/players
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDb2FjaEluZm8iOnsiY29hY2hJZCI6MX0sImlhdCI6MTY4NjgxMTM3OCwiZXhwIjoxNjg3NDE2MTc4fQ.8erhupn7NVfkJtwzd26P87ZfopyA1jtsgviCSrbTjrw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJDb2FjaEluZm8iOnsiY29hY2hJZCI6MSwidXNlcm5hbWUiOiJjb2FjaDAxIn0sImlhdCI6MTY5MjY5MjU2MSwiZXhwIjoxNjkzMjk3MzYxfQ.e_T_69pfGo1xIR3GdLcGyfWAb3h_FoL7chB1EtEm3oE
 
 ### Get a player by ID
 GET https://smart-coach-api.vercel.app/api/players/:id
